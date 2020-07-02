@@ -1,0 +1,90 @@
+body {
+  background-image: url("./landing_background.png");
+  background-color: #cccccc;
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.background_img {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.body__wrapper {
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: fit-content;
+  margin-bottom: 150px;
+}
+
+.buttons__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  position: fixed;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 150px;
+}
+
+.landing-title {
+  font-family: "Lora", serif;
+  font-size: 24px;
+  color: #362c28;
+  text-align: center;
+}
+
+.landing-tagline {
+  font-family: "Lora", serif;
+  font-size: 14px;
+  color: #362c28;
+}
+
+.log-in {
+  font-family: "Lora", serif;
+  color: #d4fcc3;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: rgba(54, 44, 40, 0.82);
+  width: 300px;
+  height: 30px;
+  border-radius: 32px;
+  margin-bottom: 15px;
+}
+
+.sign-up {
+  font-family: "Lora", serif;
+  background-color: #d4fcc3;
+  font-size: 18px;
+  line-height: 24px;
+  color: rgba(54, 44, 40, 0.82);
+  width: 300px;
+  height: 30px;
+  border-radius: 32px;
+  margin-top: 15px;
+}
