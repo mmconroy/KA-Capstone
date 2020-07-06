@@ -18,7 +18,6 @@ export class Landing extends Component {
         </div>
       </section>
     );
-  }
-}
+
 
 export default Landing;
