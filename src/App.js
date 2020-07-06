@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <TopMenu />
       {/* <Login /> */}
-      {/* <Splash /> */}
+      <Splash />
       {/* <Landing /> */}
       {/* <BudgetSetup /> */}
       {/* <GoalModal /> */}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import loading_img from "./load_img.png";
+import loading_img from "./load_img.svg";
 import "./Splash.css";
 
 export class Splash extends Component {
