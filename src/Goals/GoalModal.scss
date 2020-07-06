@@ -61,6 +61,7 @@
             width: 15em;
             height: 2em;
             border: 1px solid grey;
+            padding-left: 1em;
         }
         .depositFrequency {
         }
@@ -83,9 +84,6 @@
                 &:hover { background-color: #ecec53; }
                 & > span { display: inline-block; transform: skew(21deg); }
         }
-        // .saveGoal:hover {
-        //     background-color: #ecec53;
-        // }
     }
     
 }
