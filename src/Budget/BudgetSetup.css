@@ -1,0 +1,51 @@
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url(https://trello-attachments.s3.amazonaws.com/5f02e03a4b858d806aed36e5/414x716/7a034701441201b68a960cf8179af6f0/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+} */
+
+.fund-title {
+  text-align: center;
+  margin: 4em;
+}
+
+.fund-form {
+  display: flex;
+  justify-content: center;
+  margin: 4em;
+  padding: 1em;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: 2px solid rgb(243, 201, 105);
+  background-color: rgb(255, 245, 178);
+}
+.fund-btn {
+  margin: 3em;
+  display: flex;
+  justify-content: center;
+}
+button {
+  border-radius: 12px;
+  border: 2px solid rgb(243, 201, 105);
+  font-size: 16px;
+  padding: 14px 40px;
+  background-color: rgb(255, 245, 178);
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+button:hover {
+  background-color: rgb(243, 201, 105);
+  color: white;
+}

@@ -1,0 +1,20 @@
+.nav-icons {
+  width: 100%;
+  height: 56px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  /* border-top: 1px solid black; */
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 8px;
+}
