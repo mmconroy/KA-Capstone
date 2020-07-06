@@ -24,6 +24,7 @@ export default function SimpleMenu() {
           style={{
             backgroundColor: "#FFF5B2",
             color: "#362C28",
+            positiion: "fixed",
           }}
         >
           <img
