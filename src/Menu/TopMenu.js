@@ -80,8 +80,8 @@ export default function SimpleMenu() {
           </Menu>
           <p
             style={{
-              position: "fixed",
-              top: "12px",
+              position: "absolute",
+              top: "24px",
               left: "50%",
               transform: "translate(-50%, -50%)",
               fontFamily: '"Lora", Serif',

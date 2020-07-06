@@ -75,6 +75,7 @@ body {
   height: 30px;
   border-radius: 32px;
   margin-bottom: 15px;
+  padding: 0;
 }
 
 .sign-up {
@@ -87,4 +88,5 @@ body {
   height: 30px;
   border-radius: 32px;
   margin-top: 15px;
+  padding: 0;
 }
