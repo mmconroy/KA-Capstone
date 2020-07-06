@@ -3,12 +3,15 @@ import "./App.css";
 import Landing from "./Landing/Landing";
 import TopMenu from "./Menu/TopMenu";
 import BottomMenu from "./Menu/BottomMenu";
+import Splash from "./Landing/Splash";
 
 function App() {
   return (
     <div className="App">
-      <TopMenu />
-      <BottomMenu />
+      {/* <TopMenu />
+      <Splash />
+      <Landing />
+      <BottomMenu /> */}
     </div>
   );
 }
