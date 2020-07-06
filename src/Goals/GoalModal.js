@@ -27,7 +27,7 @@ function NewGoal() {
 
             <Modal className='modal' isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
                 <div className='formDiv'>
-                    <form className='goalForm'>
+                    <form className='goalForm' id='goalForm'>
                         <div className='newGoalName'>
                             <label className='label' htmlFor='goalName'> Goal Name: </label> <br />
                             <input type='text' name='goalName' className='goalName input' />
@@ -52,8 +52,13 @@ function NewGoal() {
                             <input type='number' name='goalAmount' className='depositAmount input' min='0.00' step='0.01' />
                         </div>
 
-                        <input type="submit" value="Save Goal" className='saveGoal' />
+                        {/* <input type="submit" value="Save Goal" className='saveGoal' /> */}
                     </form>
+
+                    <div className='submitBtn'>
+                        <button className='saveGoal' type="submit" form="goalForm" ><span> Save Goal </span></button>
+                    </div>
+
                 </div>
             </Modal>
         </>
