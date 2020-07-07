@@ -5,9 +5,9 @@ class Login extends Component {
   render() {
     return (
       <>
-        <div className="rectangle">
+        {/* <div className="rectangle">
           <h1 className="header"> Create Account </h1>
-        </div>
+        </div> */}
         <div className="form">
           <form className="loginForm">
             <div className="username">
