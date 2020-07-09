@@ -5,22 +5,26 @@ import TopMenu from "./Menu/TopMenu";
 import BottomMenu from "./Menu/BottomMenu";
 import Splash from "./Landing/Splash";
 import BudgetSetup from "./Budget/BudgetSetup";
-
 import GoalModal from "./Goals/GoalModal";
+import BudgetOverview from "./Budget/BudgetOverview";
 import Login from "./Login/Login";
-import GoalsDetail from "./Goals/GoalsDetail";
+import MyGoals from "./Goals/GoalsDetail";
+import NewGoalModal from './Goals/modals/NewGoalModal'
+import GoalDepositModal from './Goals/modals/GoalDepoitModal'
 
 function App() {
   return (
     <div className="App">
-      {/* <TopMenu /> */}
+      <TopMenu />
       {/* <Login /> */}
       {/* <Splash /> */}
       {/* <Landing /> */}
-      <BudgetSetup />
-      {/* <GoalModal /> */}
-      {/* <GoalsDetail /> */}
-      {/* <BottomMenu /> */}
+      {/* <BudgetSetup /> */}
+      {/* <BudgetOverview /> */}
+      {/* <MyGoals /> */}
+      {/* <NewGoalModal /> */}
+      {/* <GoalDepositModal /> */}
+      <BottomMenu />
     </div>
   );
 }
