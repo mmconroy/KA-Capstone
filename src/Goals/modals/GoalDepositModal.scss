@@ -1,55 +1,67 @@
 .image {
-    margin-top: 10em;
+  margin-top: 10em;
 }
 
 .modal {
-    height: 28em;
-    background-color: rgb(252, 252, 252);
-    margin-top: 10em;
-    margin-left: 2em;
-    margin-right: 2em;
-    padding-top: 3em;
-    border-radius: 10px;
-    border: 2px solid rgb(218, 218, 218);
-  }
-  
-  .formDiv {
-    margin: 0 auto;
-    width: min-content;
-    .goalForm {
-      .input {
-        border-radius: 20px;
-        margin-bottom: 2em;
-        margin-top: 1em;
-        width: 15em;
-        height: 2em;
-        border: 1px solid grey;
-        padding-left: 1em;
-      }
+  height: 28em;
+  background-color: rgb(236, 236, 236);
+  margin-top: 10em;
+  margin-left: 2em;
+  margin-right: 2em;
+  padding-top: 3em;
+  border-radius: 10px;
+  border: 2px solid rgb(218, 218, 218);
+}
+
+.formDiv {
+  margin: 0 auto;
+  margin-top: 2em;
+  width: min-content;
+  .depositForm {
+    .input {
+      background-color: white;
+      border-radius: 20px;
+      margin-bottom: 2em;
+      margin-top: 1em;
+      width: 15em;
+      height: .5em;
+      border: 1px solid grey;
+      padding-left: 1em;
     }
-    .submitBtn {
-      .saveGoal {
+    .input2 {
+      background-color: white;
+      border-radius: 20px;
+      margin-bottom: 5em;
+      margin-top: 1em;
+      width: 16em;
+      height: 8em;
+      border: 1px solid grey;
+      padding-left: 1em;
+      padding-top: 1em;
+    }
+  }
+  .submitBtn {
+    text-align: center;
+    margin-top: .5em;
+    .saveDeposit {
+      display: inline-block;
+      box-shadow: 0px 10px 14px -7px #276873;
+      padding: .7em 2em;
+      text-decoration: none;
+      background-color: #fcfc62;
+      border: 1px solid #ecec53;
+      border-radius: 8px;
+      color: rgb(61, 61, 61);
+      border-top-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      transform: skew(-21deg);
+      &:hover {
+        background-color: #ecec53;
+      }
+      & > span {
         display: inline-block;
-        margin: 1em;
-        margin-left: 4em;
-        box-shadow: 0px 10px 14px -7px #276873;
-        padding: 0.7em 1.5em;
-        text-decoration: none;
-        background-color: #fcfc62;
-        border: 1px solid #ecec53;
-        border-radius: 8px;
-        color: rgb(61, 61, 61);
-        border-top-left-radius: 25px;
-        border-bottom-right-radius: 25px;
-        transform: skew(-21deg);
-        &:hover {
-          background-color: #ecec53;
-        }
-        & > span {
-          display: inline-block;
-          transform: skew(21deg);
-        }
+        transform: skew(21deg);
       }
     }
   }
-  
+}
