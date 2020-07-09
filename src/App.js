@@ -6,10 +6,10 @@ import BottomMenu from "./Menu/BottomMenu";
 import Splash from "./Landing/Splash";
 import BudgetSetup from "./Budget/BudgetSetup";
 import BudgetOverview from "./Budget/BudgetOverview";
-import GoalModal from "./Goals/modals/GoalModal";
 import Login from "./Login/Login";
-import GoalsDetail from "./Goals/GoalsDetail";
+import MyGoals from "./Goals/GoalsDetail";
 import NewGoalModal from './Goals/modals/NewGoalModal'
+import GoalDepositModal from './Goals/modals/GoalDepoitModal'
 
 function App() {
   return (
@@ -19,10 +19,10 @@ function App() {
       {/* <Splash /> */}
       {/* <Landing /> */}
       {/* <BudgetSetup /> */}
-      {/* <GoalModal /> */}
       {/* <BudgetOverview /> */}
-      {/* <GoalsDetail /> */}
-      <NewGoalModal />
+      {/* <MyGoals /> */}
+      {/* <NewGoalModal /> */}
+      {/* <GoalDepositModal /> */}
       <BottomMenu />
     </div>
   );
