@@ -18,64 +18,39 @@ function GoalDepositModal() {
                 onRequestClose={() => setModalIsOpen(false)}
             >
                 <div className="formDiv">
-                    <form className="goalForm" id="goalForm">
+                    <form className=" depositForm" id=" depositForm">
 
-                        <div className="newGoalName">
-                            <label className="label" htmlFor="goalName">
-                                Goal Name:
-                            </label>
-                            <br />
-                            <input type="text" name="goalName" className="goalName input" />
-                        </div>
-
-                        <div className="newGoalAmount">
-                            <label className="label" htmlFor="goalAmount">
-                                Goal Amount:
-                            </label>
-                            <br />
-                            <input
-                                type="number"
-                                name="goalAmount"
-                                className="goalAmount input"
-                                min="0.00"
-                                step="0.01"
-                            />
-                        </div>
-
-                        <div className="NewDepositFrequency">
-                            <label className="label" htmlFor="depositFrequency">
-                                Deposit Frequency:
-                            </label>
-                            <br />
-                            <select
-                                className="depositFrequency input"
-                                name="depositFrequency"
-                                form="goalForm"
-                            >
-                                <option value="weekly"> Weekly </option>
-                                <option value="bi-weekly"> Bi-Weekly </option>
-                                <option value="monthly"> Monthly </option>
-                            </select>
-                        </div>
-
-                        <div className="NewDepositAmount">
-                            <label className="label" htmlFor="depositAmount">
+                        <div className="newDepositAmount">
+                            <label className="label" htmlFor=" depositAmount">
                                 Deposit Amount:
                             </label>
                             <br />
                             <input
                                 type="number"
-                                name="goalAmount"
-                                className="depositAmount input"
+                                name=" depositAmount"
+                                className=" depositAmount input"
                                 min="0.00"
                                 step="0.01"
                             />
                         </div>
+
+                        <div className='depositNotes'>
+                            <label className="label" htmlFor="depositAmount">
+                                Deposit Notes:
+                            </label>
+                            <br />
+                            <textarea
+                                className='input2'
+                                name="depositNotes"
+                                form="depositForm"
+                                placeholder='Enter notes here...'
+                            ></textarea>
+                        </div>
                     </form>
 
                     <div className="submitBtn">
-                        <button className="saveGoal" type="submit" form="goalForm">
-                            <span> Save Goal </span>
+                        <button className="saveDeposit" type="submit" form=" depositForm">
+                            <span> Deposit </span>
                         </button>
                     </div>
                 </div>
