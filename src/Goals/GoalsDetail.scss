@@ -1,38 +1,20 @@
-// .header {
-//   background-color: #fcfc58c5;
-//   width: 100vw;
-//   height: 4em;
-//   padding-top: 1.5em;
-//   padding-bottom: 0.5em;
-//   margin-bottom: 5em;
-//   text-align: center;
-// }
-
-.goal {
-  margin-top: 10rem;
-  display: flex;
-  flex-direction: row;
+.progressBar {
+  margin: 6em 2em;
+  margin-bottom: 1.5em;
   text-align: center;
-  margin-bottom: 1em;
-  font-family: "Lora", serif;
-  justify-content: center;
-  .hexagon {
-    margin-right: 1em;
-    margin-top: 0.5em;
-  }
-  .progress {
-    margin-top: 1em;
-    width: 15em;
-  }
-  .react-sweet-progress {
-    margin-top: 2em;
-  }
+    h3 {
+      margin-top: 1em;
+    }
+}
+.react-sweet-progress {
+  margin-top: 1em;
 }
 
 .goalFooter {
+  margin-top: 1em;
   h3 {
     text-align: center;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
     font-family: "Lora", serif;
   }
   hr {
@@ -42,24 +24,54 @@
   }
 }
 
-.recentActivity {
+.emptyScreen {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: center;
+  margin-top: 3em;
   h2 {
     font-family: "Lora", serif;
-    margin-top: 3em;
+    margin-top: 2em;
     font-weight: 400;
     font-size: 22px;
     text-align: center;
     width: 60%;
     margin-left: 3.5em;
-    margin-bottom: 3em;
+    margin-bottom: 2em;
   }
   .img {
     align-self: center;
     justify-self: center;
+  }
+}
+
+.newGoal {
+  margin: 0 auto;
+  margin-top: 5em;
+  margin-bottom: 2em;
+  width: min-content;
+  height: min-content;
+  .addGoal {
+    width: 8.5em;
+    display: inline-block;
+    box-shadow: 0px 10px 14px -7px #276873;
+    padding: 0.7em 1.5em;
+    text-decoration: none;
+    background-color: #fcfc62;
+    border: 1px solid #ecec53;
+    border-radius: 8px;
+    color: rgb(61, 61, 61);
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    transform: skew(-21deg);
+    &:hover {
+      background-color: #ecec53;
+    }
+    & > span {
+      display: inline-block;
+      transform: skew(21deg);
+    }
   }
 }
