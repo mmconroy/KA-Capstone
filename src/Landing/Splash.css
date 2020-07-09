@@ -1,10 +1,11 @@
 .splash__wrapper {
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  /* background-color: #fff; */
   position: fixed;
   top: 0;
   left: 0;
+  color: black;
 }
 
 .loading-img {
@@ -14,4 +15,26 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.splash-text {
+  font-family: "Lora", serif;
+  color: #362c28;
+  position: fixed;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: text 2s infinite;
+}
+
+@keyframes text {
+  0% {
+    color: #362c28;
+  }
+  50% {
+    color: #fff5b2;
+  }
+  100% {
+    color: #362c28;
+  }
 }
