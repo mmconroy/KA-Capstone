@@ -89,8 +89,6 @@ function NewGoal() {
                 step="0.01"
               />
             </div>
-
-            {/* <input type="submit" value="Save Goal" className='saveGoal' /> */}
           </form>
 
           <div className="submitBtn">

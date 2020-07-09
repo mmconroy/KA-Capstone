@@ -6,21 +6,23 @@ import BottomMenu from "./Menu/BottomMenu";
 import Splash from "./Landing/Splash";
 import BudgetSetup from "./Budget/BudgetSetup";
 import BudgetOverview from "./Budget/BudgetOverview";
-import GoalModal from "./Goals/GoalModal";
+import GoalModal from "./Goals/modals/GoalModal";
 import Login from "./Login/Login";
 import GoalsDetail from "./Goals/GoalsDetail";
+import NewGoalModal from './Goals/modals/NewGoalModal'
 
 function App() {
   return (
     <div className="App">
       <TopMenu />
-      <Login />
+      {/* <Login /> */}
       {/* <Splash /> */}
       {/* <Landing /> */}
       {/* <BudgetSetup /> */}
       {/* <GoalModal /> */}
       {/* <BudgetOverview /> */}
       {/* <GoalsDetail /> */}
+      <NewGoalModal />
       <BottomMenu />
     </div>
   );
