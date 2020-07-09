@@ -1,18 +1,16 @@
 import React, { useState, Component } from "react";
 import Modal from "react-modal";
-import "./NewGoalModal.scss";
+import "./GoalDepositModal.scss";
 
-function NewGoalModal() {
+function GoalDepositModal() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     return (
         <>
-            <div className='newGoal'>
-                <button
-                    onClick={() => setModalIsOpen(true)}
-                    className="addGoal">
-                    <span> Add Goal </span>
-                </button>
-            </div>
+            <img
+                className='image'
+                onClick={() => setModalIsOpen(true)}
+                src="https://img.icons8.com/ios/50/000000/add.png"
+            />
 
             <Modal
                 className="modal"
@@ -44,17 +42,34 @@ function NewGoalModal() {
                             />
                         </div>
 
-                        <div className='goalNotes'>
-                            <label className="label" htmlFor="goalAmount">
-                                Goal Notes:
+                        <div className="NewDepositFrequency">
+                            <label className="label" htmlFor="depositFrequency">
+                                Deposit Frequency:
                             </label>
                             <br />
-                            <textarea
-                                className='input2'
-                                name="goalNotes"
+                            <select
+                                className="depositFrequency input"
+                                name="depositFrequency"
                                 form="goalForm"
-                                placeholder='Enter notes here...'
-                            ></textarea>
+                            >
+                                <option value="weekly"> Weekly </option>
+                                <option value="bi-weekly"> Bi-Weekly </option>
+                                <option value="monthly"> Monthly </option>
+                            </select>
+                        </div>
+
+                        <div className="NewDepositAmount">
+                            <label className="label" htmlFor="depositAmount">
+                                Deposit Amount:
+                            </label>
+                            <br />
+                            <input
+                                type="number"
+                                name="goalAmount"
+                                className="depositAmount input"
+                                min="0.00"
+                                step="0.01"
+                            />
                         </div>
                     </form>
 
@@ -70,4 +85,4 @@ function NewGoalModal() {
     );
 }
 
-export default NewGoalModal;
+export default GoalDepositModal;
