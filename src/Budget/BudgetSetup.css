@@ -9,7 +9,12 @@ body {
   background-size: cover;
   object-fit: cover;
 } */
-
+.fund-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .fund-title {
   text-align: center;
   margin: 4em;
@@ -18,7 +23,7 @@ body {
 .fund-form {
   display: flex;
   justify-content: center;
-  margin: 4em;
+  margin: 0.5em;
   padding: 1em;
 }
 form {
@@ -31,21 +36,40 @@ input {
   border: 2px solid rgb(243, 201, 105);
   background-color: rgb(255, 245, 178);
 }
-.fund-btn {
-  margin: 3em;
+.fund {
+  margin: 1px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+label{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
 }
 button {
   border-radius: 12px;
-  border: 2px solid rgb(243, 201, 105);
+  border: 2px solid rgb(152, 241, 113);
   font-size: 16px;
   padding: 14px 40px;
-  background-color: rgb(255, 245, 178);
+  background-color: rgb(212, 252, 195);
   transition-duration: 0.4s;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 2px;
 }
+  
 button:hover {
   background-color: rgb(243, 201, 105);
   color: white;
+}
+.alt-goal{
+  margin: 3em;
+  margin-bottom: 5px;
+  padding: 2em;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
 }

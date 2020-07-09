@@ -9,25 +9,33 @@ export class BudgetSetup extends Component {
           <div className="fund-title">
             <h1>Funds</h1>
           </div>
-
+        <form>
           <div className="fund-form">
-            <form>
-              <label for="currency-field">Salary/Income</label>
+            
               <input
                 type="text"
-                name="currency-field"
-                id="currency-field"
-                pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
+                placeholder="$ Income"
                 value=""
-                data-type="currency"
-                placeholder="$"
               />
-            </form>
+          
           </div>
 
-          <div className="fund-btn">
+          <div className="fund">
+            <label  htmlFor="calculate">20% Savings Goal</label>
             <button>Calculate</button>
+          
           </div>
+
+          <div className="alt-goal">
+          <label htmlFor="currency-field">Save towards another goal</label>
+              <input
+                type="text"
+                placeholder="$ Enter Amount"
+                value=""
+              />
+          <button>Submit</button>   
+          </div> 
+        </form>
         </div>
       </div>
     );
