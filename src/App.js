@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import shortid from "shortid";
 import Landing from "./Landing/Landing";
 import TopMenu from "./Menu/TopMenu";
@@ -65,21 +65,34 @@ class App extends Component {
     return (
       <div className="App">
         <TopMenu />
-        {/* <Login /> */}
-        {/* <Splash /> */}
-        {/* <Landing /> */}
-        <BudgetSetup
-          goalList={this.state.goalList}
-          onSubmit={this.handleSubmit}
-        />
-        {/* <MyGoals /> */}
-        {/* <NewGoalModal /> */}
-
-        {/* <GoalDepositModal /> */}
-        <BottomMenu />
+        <Switch>
+          <Route exact path="/Login">
+            <Login history={this.props.history} />
+          </Route>
+          <Route exact path="/Landing">
+            <Landing />
+          </Route>
+        </Switch>
+        <Route exact path="/Setup">
+          <BudgetSetup
+            goalList={this.state.goalList}
+            onSubmit={this.handleSubmit}
+          />
+        </Route>
+        <Switch>
+          <Route exact path="/Goals">
+            <MyGoals />
+            <NewGoalModal />
+            <GoalDepositModal />
+          </Route>
+        </Switch>
+        <Route exact path="/">
+          <Splash />
+        </Route>
+        {/* <BottomMenu /> */}
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

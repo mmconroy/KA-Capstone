@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
 import "./Login.scss";
 
 class Login extends Component {
@@ -25,7 +26,10 @@ class Login extends Component {
               <br />
               <input type="password" name="confirmation" className="input" />
             </div>
-            <input type="submit" value="Enter Your Hive" className="submit" />
+            <Link className="submit" to="/Setup">
+              Enter Your Hive
+            </Link>
+            {/* <input type="submit" value="Enter Your Hive" className="submit" /> */}
           </form>
         </div>
       </>
