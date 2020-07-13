@@ -8,16 +8,36 @@ import BottomMenu from "./Menu/BottomMenu";
 import Splash from "./Landing/Splash";
 import BudgetSetup from "./Budget/BudgetSetup";
 import Login from "./Login/Login";
-import MyGoals from "./Goals/GoalsDetail";
 import NewGoalModal from "./Goals/modals/NewGoalModal";
-import GoalDepositModal from "./Goals/modals/GoalDepoitModal";
-import GoalsDetail from "./Goals/GoalsDetail";
+import MyGoals from "./Goals/MyGoals";
+import UserGoals from './Goals/UserGoals'
 
 const GOALS_KEY = "myapp_goals";
 
 class App extends Component {
   state = {
-    goalList: [],
+    goalList: [{
+      id: shortid.generate(),
+      goalName: "Rainy Day Fund",
+      currentAmount: '900',
+      goalAmount: "1000",
+      goalNotes: '',
+    },
+    {
+      id: shortid.generate(),
+      goalName: "Yoga Classes",
+      currentAmount: '200',
+      goalAmount: "800",
+      goalNotes: '',
+    },
+    {
+      id: shortid.generate(),
+      goalName: "New Car",
+      currentAmount: '160',
+      goalAmount: "5000",
+      goalNotes: '',
+    }],
+
     newGoal: "",
   };
   handleInputChange = (event) => {
@@ -81,7 +101,9 @@ class App extends Component {
         </Route>
         <Switch>
           <Route exact path="/Goals">
-            <MyGoals />
+           <MyGoals
+          goalList={this.state.goalList}
+        />
             <NewGoalModal />
             <GoalDepositModal />
           </Route>

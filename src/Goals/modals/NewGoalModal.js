@@ -7,6 +7,7 @@ function NewGoalModal() {
     return (
         <>
             <div className='newGoal'>
+                {/* button to open modal that ads new goal */}
                 <button
                     onClick={() => setModalIsOpen(true)}
                     className="addGoal">
@@ -15,7 +16,7 @@ function NewGoalModal() {
             </div>
 
             <Modal
-                className="modal"
+                className="modalBox"
                 isOpen={modalIsOpen}
                 onRequestClose={() => setModalIsOpen(false)}
             >
