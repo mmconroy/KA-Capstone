@@ -7,12 +7,19 @@ import "react-sweet-progress/lib/style.css";
 import { withRouter } from "react-router-dom";
 
 
+function findPercentage(goal, current) {
+    // function to calculate percentage of goal total
+    return (current / goal) * 100
+}
+
+
 
 function UserGoals(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     return (
         <div className='goalInfo'>
             <div className='icon'>
+                {/* button to open modal for depositing into goal */}
                 <img
                     onClick={() => setModalIsOpen(true)}
                     src="https://img.icons8.com/ios-glyphs/60/000000/honeycombs.png"
@@ -22,7 +29,12 @@ function UserGoals(props) {
             <div className='goalProgress'>
                 {props.goalItem.goalName}
 
-                <Progress percent={props.goalItem.goalPercentage} />
+                <Progress percent={
+                    findPercentage(
+                        props.goalItem.goalAmount,
+                        props.goalItem.currentAmount
+                    )}
+                />
 
                 <div className='moneyLevel'>
                     <p>$ </p>

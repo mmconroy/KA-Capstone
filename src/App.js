@@ -21,7 +21,6 @@ class App extends Component {
       goalName: "Rainy Day Fund",
       currentAmount: '900',
       goalAmount: "1000",
-      goalPercentage: '90',
       goalNotes: '',
     },
     {
@@ -29,7 +28,6 @@ class App extends Component {
       goalName: "Yoga Classes",
       currentAmount: '200',
       goalAmount: "800",
-      goalPercentage: '25',
       goalNotes: '',
     },
     {
@@ -37,7 +35,6 @@ class App extends Component {
       goalName: "New Car",
       currentAmount: '160',
       goalAmount: "5000",
-      goalPercentage: '3.2',
       goalNotes: '',
     }],
 

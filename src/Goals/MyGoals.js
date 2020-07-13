@@ -23,6 +23,7 @@ function MyGoals(props) {
         <hr />
       </div>
 
+      {/* Maps through goals and renders them on page */}
       <div className='userGoals'>
         <ul className='goalList'>
           {props.goalList.map((goalItem) => (
