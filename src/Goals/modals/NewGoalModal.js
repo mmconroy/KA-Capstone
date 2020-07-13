@@ -7,6 +7,7 @@ function NewGoalModal() {
     return (
         <>
             <div className='newGoal'>
+                {/* button to open modal that ads new goal */}
                 <button
                     onClick={() => setModalIsOpen(true)}
                     className="addGoal">
