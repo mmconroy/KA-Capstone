@@ -15,7 +15,7 @@ function NewGoalModal() {
             </div>
 
             <Modal
-                className="modal"
+                className="modalBox"
                 isOpen={modalIsOpen}
                 onRequestClose={() => setModalIsOpen(false)}
             >
