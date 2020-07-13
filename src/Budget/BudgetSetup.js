@@ -29,7 +29,13 @@ class BudgetSetup extends Component {
           </div>
           <form>
             <div className="fund-form">
-              <input type="number" placeholder="$ Income" id="input" />
+              <input
+                placeholder="$ Enter Amount"
+                type="number"
+                defaultValue=" "
+                value={this.newGoal}
+                onChange={this.handleInputChange}
+              ></input>{" "}
             </div>
             <div className="fund">
               <label htmlFor="calculate">20% Savings Goal</label>
@@ -38,7 +44,13 @@ class BudgetSetup extends Component {
 
             <div className="alt-goal">
               <label htmlFor="currency-field">Save towards another goal</label>
-              <input type="text" placeholder="$ Enter Amount" />
+              <input
+                placeholder="$ Enter Amount"
+                type="number"
+                defaultValue=" "
+                value={this.newGoal}
+                onChange={this.handleInputChange}
+              ></input>{" "}
               <button onClick={this.handleAddNewGoal}>Submit</button>
             </div>
           </form>
