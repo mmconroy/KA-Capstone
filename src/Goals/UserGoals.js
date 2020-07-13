@@ -1,16 +1,43 @@
 import React, { useState, Component } from "react";
+import "./UserGoals.scss";
+import './modals/GoalDepositModal.scss'
 import Modal from "react-modal";
-import "./GoalDepositModal.scss";
+import { Progress } from "react-sweet-progress";
+import "react-sweet-progress/lib/style.css";
+import { withRouter } from "react-router-dom";
 
-function GoalDepositModal() {
+
+
+function UserGoals(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     return (
-        <>
-            <img
-                className='image'
-                onClick={() => setModalIsOpen(true)}
-                src="https://img.icons8.com/ios/50/000000/add.png"
-            />
+        <div className='goalInfo'>
+            <div className='icon'>
+                <img
+                    onClick={() => setModalIsOpen(true)}
+                    src="https://img.icons8.com/ios-glyphs/60/000000/honeycombs.png"
+                />
+            </div>
+
+            <div className='goalProgress'>
+                {props.goalItem.goalName}
+
+                <Progress percent={props.goalItem.goalPercentage} />
+
+                <div className='moneyLevel'>
+                    <p>$ </p>
+                    {props.goalItem.currentAmount}
+                    <span className='spacer'> / </span>
+                    <p>$ </p>
+                    {props.goalItem.goalAmount}
+                </div>
+                <hr />
+            </div>
+
+
+
+
+
 
             <Modal
                 className="modal"
@@ -55,9 +82,8 @@ function GoalDepositModal() {
                     </div>
                 </div>
             </Modal>
-
-        </>
+        </div>
     );
 }
 
-export default GoalDepositModal;
+export default UserGoals;
