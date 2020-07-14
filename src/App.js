@@ -42,9 +42,16 @@ class App extends Component {
 
     newGoal: "",
 
+
     savingsAmount: 0,
 
     calculatedSavingsAmount: 0,
+
+    newDeposit: [{
+      depositAmount: '',
+      note: '',
+    }],
+
   };
   handleInputChange = (event) => {
     const name = event.target.name;
@@ -94,11 +101,38 @@ class App extends Component {
 
   newSavingsCount = () => {};
 
+  handleDepositSubmit = (id) =>
+  // function to add recent deposit to currentAmount of goal
+  {
+    let goalId = id;
+    let targetGoal = this.state.goalList.find(goal => goal.id === goalId);
+    this.setState({})
+  }
+
+  handleDeposit = (event) => {
+    // sets value of input to newDeposit state
+    this.setState({
+      newDeposit: [{
+        depositAmount: event.target.value,
+        note: this.state.newDeposit.note
+      }]
+    })
+  }
+
+  handleChange = (event) => {
+    // Generic handle change function
+    event.preventDefault();
+
+    let name = event.target.name;
+    let value = event.target.value;
+    this.setState({ [name]: value })
+  }
+
   render() {
     return (
       <div className="App">
         <TopMenu />
-        <Switch>
+ <Switch>
           <Route exact path="/Login">
             <Login history={this.props.history} />
           </Route>
@@ -117,6 +151,7 @@ class App extends Component {
         </Route>
         <Switch>
           <Route exact path="/Goals">
+
             <MyGoals
               goalList={this.state.goalList}
               savingsAmount={this.state.SavingsAmount}
