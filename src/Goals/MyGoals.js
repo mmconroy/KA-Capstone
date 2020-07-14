@@ -26,7 +26,7 @@ function MyGoals(props) {
       <div className="userGoals">
         <ul className="goalList">
           {props.goalList.map((goalItem) => (
-            < UserGoals
+            <UserGoals
               handleDeposit={props.handleDeposit}
               handleChange={props.handleChange}
               handleSubmit={props.handleSubmit}
