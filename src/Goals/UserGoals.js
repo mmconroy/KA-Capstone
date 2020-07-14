@@ -12,10 +12,12 @@ function findPercentage(goal, current) {
     return (current / goal) * 100
 }
 
-
-
 function UserGoals(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        props.handleSubmit(props.goalItem.id)
+    }
     return (
         <div className='goalInfo'>
             <div className='icon'>
@@ -57,7 +59,7 @@ function UserGoals(props) {
                 onRequestClose={() => setModalIsOpen(false)}
             >
                 <div className="formDiv">
-                    <form className=" depositForm" id=" depositForm">
+                    <form className=" depositForm" id=" depositForm" onSubmit={handleSubmit}>
 
                         <div className="newDepositAmount">
                             <label className="label" htmlFor=" depositAmount">
@@ -65,6 +67,7 @@ function UserGoals(props) {
                             </label>
                             <br />
                             <input
+                                onChange={props.handleDeposit}
                                 type="number"
                                 name=" depositAmount"
                                 className=" depositAmount input"

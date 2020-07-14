@@ -28,9 +28,13 @@ function MyGoals(props) {
         <ul className='goalList'>
           {props.goalList.map((goalItem) => (
             < UserGoals
+              handleDeposit={props.handleDeposit}
+              handleChange={props.handleChange}
+              handleSubmit={props.handleSubmit}
               goalItem={goalItem}
               key={goalItem.id}
               goals={props.goalList}
+              newDeposit={props.newDeposit}
             />
           ))}
         </ul>

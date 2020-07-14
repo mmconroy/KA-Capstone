@@ -39,6 +39,11 @@ class App extends Component {
     }],
 
     newGoal: "",
+
+    newDeposit: [{
+      depositAmount: '',
+      note: '',
+    }],
   };
   handleInputChange = (event) => {
     this.setState({ newGoal: event.target.value });
@@ -81,6 +86,35 @@ class App extends Component {
     });
   };
 
+  handleDepositSubmit = (id) =>
+  // function to add recent deposit to currentAmount of goal
+  {
+    let goalId = id;
+    let targetGoal = this.state.goalList.find(goal => goal.id === goalId);
+
+    this.setState({})
+  }
+
+  handleDeposit = (event) => {
+    // sets value of input to newDeposit state
+    this.setState({
+      newDeposit: [{
+        depositAmount: event.target.value,
+        note: this.state.newDeposit.note
+      }]
+    })
+  }
+
+  handleChange = (event) => {
+    // Generic handle change function
+    event.preventDefault();
+
+    let name = event.target.name;
+    let value = event.target.value;
+
+    this.setState({ [name]: value })
+  }
+
   render() {
     return (
       <div className="App">
@@ -93,7 +127,11 @@ class App extends Component {
           onSubmit={this.handleSubmit}
         /> */}
         <MyGoals
+          handleDeposit={this.handleDeposit}
+          handleChange={this.handleChange}
           goalList={this.state.goalList}
+          newDeposit={this.state.newDeposit}
+          handleSubmit={this.handleDepositSubmit}
         />
         <NewGoalModal />
         <BottomMenu />
