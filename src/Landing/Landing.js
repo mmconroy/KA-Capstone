@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+
 import "./Landing.css";
 import background from "./landing_background.png";
 
@@ -15,7 +17,10 @@ class Landing extends Component {
           </div>
           <div className="buttons__wrapper">
             <button className="log-in">Log In</button>
-            <button className="sign-up">Sign Up</button>
+            {/* <button className="sign-up">Sign Up</button> */}
+            <Link className="sign-up" to="/Login">
+              Sign Up
+            </Link>
           </div>
         </section>
       </div>

@@ -2,6 +2,24 @@ import React, { Component } from "react";
 import "./BudgetSetup.css";
 
 class BudgetSetup extends Component {
+  state = {
+    goalList: [],
+    newGoal: "",
+  };
+  handleInputChange = (event) => {
+    this.setState({ newGoal: event.target.value });
+  };
+
+  handleAddNewGoal = () => {
+    let newGoalObject = {
+      name: this.state.newGoal,
+    };
+    this.setState((state) => ({
+      goal: [...state.goalList, newGoalObject],
+      newGoalObject: "",
+    }));
+  };
+
   render() {
     return (
       <div>
@@ -11,17 +29,29 @@ class BudgetSetup extends Component {
           </div>
           <form>
             <div className="fund-form">
-              <input type="number" placeholder="$ Income" id="input" />
+              <input
+                placeholder="$ Enter Amount"
+                type="number"
+                defaultValue=" "
+                value={this.newGoal}
+                onChange={this.handleInputChange}
+              ></input>{" "}
             </div>
             <div className="fund">
               <label htmlFor="calculate">20% Savings Goal</label>
-              <button>Calculate</button>
+              <button onClick={this.handleAddNewGoal}>Calculate</button>
             </div>
 
             <div className="alt-goal">
               <label htmlFor="currency-field">Save towards another goal</label>
-              <input type="text" placeholder="$ Enter Amount" />
-              <button>Submit</button>
+              <input
+                placeholder="$ Enter Amount"
+                type="number"
+                defaultValue=" "
+                value={this.newGoal}
+                onChange={this.handleInputChange}
+              ></input>{" "}
+              <button onClick={this.handleAddNewGoal}>Submit</button>
             </div>
           </form>
         </div>
