@@ -4,9 +4,8 @@ import Modal from "react-modal";
 import { Progress } from "react-sweet-progress";
 import "react-sweet-progress/lib/style.css";
 import { withRouter } from "react-router-dom";
-import NewGoalModal from './modals/NewGoalModal'
-import UserGoals from './UserGoals'
-
+import NewGoalModal from "./modals/NewGoalModal";
+import UserGoals from "./UserGoals";
 
 function MyGoals(props) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -19,15 +18,15 @@ function MyGoals(props) {
       </div>
 
       <div className="goalFooter">
-        <h3 className="money"> $0.00 / $0.00 </h3>
+        <h3 className="money"> $0.00 / {props.calculatedSavingsAmount} </h3>{" "}
         <hr />
       </div>
 
       {/* Maps through goals and renders them on page */}
-      <div className='userGoals'>
-        <ul className='goalList'>
+      <div className="userGoals">
+        <ul className="goalList">
           {props.goalList.map((goalItem) => (
-            < UserGoals
+            <UserGoals
               goalItem={goalItem}
               key={goalItem.id}
               goals={props.goalList}
@@ -39,14 +38,10 @@ function MyGoals(props) {
   );
 }
 
-
-
 export default MyGoals;
 
-
-
-
-{/* <div className="emptyScreen">
+{
+  /* <div className="emptyScreen">
         <div className="img">
           <img
             className="bankIcon"
@@ -57,4 +52,5 @@ export default MyGoals;
           Press the button below to create a new goal,
           once you create your first goal it will appear here.
           </h2>
-      </div> */}
+      </div> */
+}
