@@ -10,43 +10,53 @@ import BudgetSetup from "./Budget/BudgetSetup";
 import Login from "./Login/Login";
 import NewGoalModal from "./Goals/modals/NewGoalModal";
 import MyGoals from "./Goals/MyGoals";
-import UserGoals from './Goals/UserGoals'
+import UserGoals from "./Goals/UserGoals";
 
 const GOALS_KEY = "myapp_goals";
 
 class App extends Component {
   state = {
-    goalList: [{
-      id: shortid.generate(),
-      goalName: "Rainy Day Fund",
-      currentAmount: '900',
-      goalAmount: "1000",
-      goalNotes: '',
-    },
-    {
-      id: shortid.generate(),
-      goalName: "Yoga Classes",
-      currentAmount: '200',
-      goalAmount: "800",
-      goalNotes: '',
-    },
-    {
-      id: shortid.generate(),
-      goalName: "New Car",
-      currentAmount: '160',
-      goalAmount: "5000",
-      goalNotes: '',
-    }],
+    goalList: [
+      {
+        id: shortid.generate(),
+        goalName: "Rainy Day Fund",
+        currentAmount: "900",
+        goalAmount: "1000",
+        goalNotes: "",
+      },
+      {
+        id: shortid.generate(),
+        goalName: "Yoga Classes",
+        currentAmount: "200",
+        goalAmount: "800",
+        goalNotes: "",
+      },
+      {
+        id: shortid.generate(),
+        goalName: "New Car",
+        currentAmount: "160",
+        goalAmount: "5000",
+        goalNotes: "",
+      },
+    ],
 
     newGoal: "",
+
+
+    savingsAmount: 0,
+
+    calculatedSavingsAmount: 0,
 
     newDeposit: [{
       depositAmount: '',
       note: '',
     }],
+
   };
   handleInputChange = (event) => {
-    this.setState({ newGoal: event.target.value });
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({ [name]: value });
   };
   componentDidMount() {
     const goalString = localStorage.getItem(GOALS_KEY);
@@ -60,6 +70,7 @@ class App extends Component {
       localStorage.setItem(GOALS_KEY, JSON.stringify(this.state.goalList));
     }
   }
+
   handleAddNewGoal = () => {
     let newGoal = {
       id: shortid.generate(),
@@ -71,27 +82,30 @@ class App extends Component {
       newGoal: "",
     });
   };
-  handleSubmit = (form) => {
-    this.setState((state) => {
-      let updatedList = state.goalList.map((item) => {
-        if (form.id === item.id) {
-          return { ...form };
+
+  handleSubmit = (event) => {
+    this.setState(
+      (state) => {
+        return { calculatedSavingsAmount: state.savingsAmount * 0.2 };
+      },
+      () => {
+        event.preventDefault();
+        if (this.state.calculatedSavingsAmount !== "") {
+          this.props.history.push("/Goals");
         } else {
-          return item;
+          this.setState({ error: "Please enter a valid amount" });
         }
-      });
-      return {
-        goalList: updatedList,
-      };
-    });
+      }
+    );
   };
+
+  newSavingsCount = () => {};
 
   handleDepositSubmit = (id) =>
   // function to add recent deposit to currentAmount of goal
   {
     let goalId = id;
     let targetGoal = this.state.goalList.find(goal => goal.id === goalId);
-
     this.setState({})
   }
 
@@ -111,7 +125,6 @@ class App extends Component {
 
     let name = event.target.name;
     let value = event.target.value;
-
     this.setState({ [name]: value })
   }
 
@@ -129,20 +142,23 @@ class App extends Component {
         </Switch>
         <Route exact path="/Setup">
           <BudgetSetup
-            goalList={this.state.goalList}
+            // goalList={this.state.goalList}
+            handleInputChange={this.handleInputChange}
             onSubmit={this.handleSubmit}
+            history={this.props.history}
+            savingsAmount={this.state.savingsAmount}
           />
         </Route>
         <Switch>
           <Route exact path="/Goals">
-           <MyGoals
- master
-          goalList={this.state.goalList}
-          newDeposit={this.state.newDeposit}
-          handleSubmit={this.handleDepositSubmit}
-        />
+
+            <MyGoals
+              goalList={this.state.goalList}
+              savingsAmount={this.state.SavingsAmount}
+              calculatedSavingsAmount={this.state.calculatedSavingsAmount}
+            />
             <NewGoalModal />
-            <GoalDepositModal />
+            {/* <GoalDepositModal /> */}
           </Route>
         </Switch>
         <Route exact path="/">
