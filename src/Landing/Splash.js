@@ -10,7 +10,7 @@ export class Splash extends Component {
       <div className="splash__wrapper">
         <img src={loading_img} alt="Bee Logo" className="loading-img" />
         {/* <p className="splash-text">Tap here to begin ➡️</p> */}
-        <Link className="splash-text" to="/Landing">
+        <Link className="splash-text" to="/Setup">
           Tap Here to Begin
         </Link>
       </div>
