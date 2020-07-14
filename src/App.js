@@ -44,10 +44,18 @@ class App extends Component {
       depositAmount: '',
       note: '',
     }],
+
+    addGoal: [{
+      goalName: "Yes",
+      goalAmount: "500",
+      goalNotes: '',
+    }],
   };
+
   handleInputChange = (event) => {
     this.setState({ newGoal: event.target.value });
   };
+
   componentDidMount() {
     const goalString = localStorage.getItem(GOALS_KEY);
     if (goalString) {
@@ -60,6 +68,7 @@ class App extends Component {
       localStorage.setItem(GOALS_KEY, JSON.stringify(this.state.goalList));
     }
   }
+
   handleAddNewGoal = () => {
     let newGoal = {
       id: shortid.generate(),
@@ -71,6 +80,7 @@ class App extends Component {
       newGoal: "",
     });
   };
+
   handleSubmit = (form) => {
     this.setState((state) => {
       let updatedList = state.goalList.map((item) => {
@@ -86,17 +96,30 @@ class App extends Component {
     });
   };
 
+
+
   handleDepositSubmit = (id) =>
   // function to add recent deposit to currentAmount of goal
   {
     let goalId = id;
-    let targetGoal = this.state.goalList.find(goal => goal.id === goalId);
+    let goalObject = this.state.goalList.filter(goal => goal.id === goalId)
+    goalObject[0].currentAmount = parseInt(goalObject[0].currentAmount) + parseInt(this.state.newDeposit[0].depositAmount);
 
-    this.setState({})
+    this.setState(() => {
+      this.state.goalList.map((goal) => {
+        if (goal.id === id) {
+          return { ...goalObject }
+        } else {
+          return goal
+        }
+      });
+    });
   }
 
   handleDeposit = (event) => {
     // sets value of input to newDeposit state
+    event.preventDefault();
+
     this.setState({
       newDeposit: [{
         depositAmount: event.target.value,
@@ -105,21 +128,35 @@ class App extends Component {
     })
   }
 
-  handleChange = (event) => {
-    // Generic handle change function
+  handleAddNewGoal = (event) => {
+    // Function that creates a new goal object and adds to goalList
     event.preventDefault();
+    let newName = this.state.addGoal[0].goalName;
+    let newAmount = this.state.addGoal[0].goalAmount;
+    if (this.state.addGoal.goalName !== 0) {
+      let newGoalObject = {
+        id: shortid.generate(),
+        goalName: newName,
+        currentAmount: '0',
+        goalAmount: newAmount,
+        goalNotes: '',
+      };
+      this.setState({
+        goalList: [...this.state.goalList, newGoalObject]
+      });
+    }
+  };
 
-    let name = event.target.name;
-    let value = event.target.value;
-
-    this.setState({ [name]: value })
+  handleNewGoalChange = (event) => {
+    // sets info from amount to state of addGoal
+    event.preventDefault();
   }
 
   render() {
     return (
       <div className="App">
         <TopMenu />
- <Switch>
+        <Switch>
           <Route exact path="/Login">
             <Login history={this.props.history} />
           </Route>
@@ -135,14 +172,19 @@ class App extends Component {
         </Route>
         <Switch>
           <Route exact path="/Goals">
-           <MyGoals
- master
-          goalList={this.state.goalList}
-          newDeposit={this.state.newDeposit}
-          handleSubmit={this.handleDepositSubmit}
-        />
-            <NewGoalModal />
-            <GoalDepositModal />
+            <MyGoals
+              master
+              newGoal={this.state.newGoal}
+              handleDeposit={this.handleDeposit}
+              goalList={this.state.goalList}
+              newDeposit={this.state.newDeposit}
+              addGoal={this.state.addGoal}
+              handleSubmit={this.handleDepositSubmit}
+            />
+            <NewGoalModal
+              handleSubmit={this.handleAddNewGoal}
+              handleChange={this.handleNewGoalChange}
+            />
           </Route>
         </Switch>
         <Route exact path="/">
