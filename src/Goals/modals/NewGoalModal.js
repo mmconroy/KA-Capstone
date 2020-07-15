@@ -2,8 +2,9 @@ import React, { useState, Component } from "react";
 import Modal from "react-modal";
 import "./NewGoalModal.scss";
 
-function NewGoalModal() {
+function NewGoalModal(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
+
     return (
         <>
             <div className='newGoal'>
@@ -21,14 +22,19 @@ function NewGoalModal() {
                 onRequestClose={() => setModalIsOpen(false)}
             >
                 <div className="formDiv">
-                    <form className="goalForm" id="goalForm">
+                    <form className="goalForm" id="goalForm" onSubmit={props.handleNewGoalObj}>
 
                         <div className="newGoalName">
                             <label className="label" htmlFor="goalName">
                                 Goal Name:
                             </label>
                             <br />
-                            <input type="text" name="goalName" className="goalName input" />
+                            <input
+                                onChange={props.handleChange}
+                                // value={}
+                                type="text" name="goalName"
+                                className="goalName input"
+                            />
                         </div>
 
                         <div className="newGoalAmount">
@@ -37,6 +43,7 @@ function NewGoalModal() {
                             </label>
                             <br />
                             <input
+                                onChange={props.handleChange}
                                 type="number"
                                 name="goalAmount"
                                 className="goalAmount input"

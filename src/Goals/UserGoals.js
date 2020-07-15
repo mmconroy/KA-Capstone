@@ -16,7 +16,7 @@ function UserGoals(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.handleSubmit(props.goalItem.id)
+        props.handleModalDeposit(props.goalItem.id)
     }
     return (
         <div className='goalInfo'>
@@ -67,7 +67,7 @@ function UserGoals(props) {
                             </label>
                             <br />
                             <input
-                                onChange={props.handleDeposit}
+                                onChange={props.handleAddNewDeposit}
                                 type="number"
                                 name=" depositAmount"
                                 className=" depositAmount input"
