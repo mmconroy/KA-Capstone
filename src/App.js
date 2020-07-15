@@ -20,31 +20,18 @@ class App extends Component {
       {
         id: shortid.generate(),
         goalName: "Rainy Day Fund",
-        currentAmount: "900",
+        currentAmount: "0",
         goalAmount: "1000",
         goalNotes: "",
-      },
-      {
-        id: shortid.generate(),
-        goalName: "Yoga Classes",
-        currentAmount: "200",
-        goalAmount: "800",
-        goalNotes: "",
-      },
-      {
-        id: shortid.generate(),
-        goalName: "New Car",
-        currentAmount: "160",
-        goalAmount: "5000",
-        goalNotes: "",
-      },
+      }
     ],
 
     newGoal: "",
-
     savingsAmount: 0,
-
     calculatedSavingsAmount: 0,
+
+    goalName: "",
+    goalAmount: "",
 
     newDeposit: [
       {
@@ -52,8 +39,6 @@ class App extends Component {
         note: "",
       },
     ],
-
-    addGoal: [{ goalName: "" }, { goalAmount: "" }, { goalNotes: "" }],
   };
 
   handleGoalInputChange = (event) => {
@@ -103,23 +88,11 @@ class App extends Component {
   };
 
   handleDepositSubmit = (id) =>
-    // function to add recent deposit to currentAmount of goal
-    {
-      let goalId = id;
-      let targetGoal = this.state.goalList.find((goal) => goal.id === goalId);
-      this.setState({});
-    };
-
-  handleDeposit = (event) => {
-    // sets value of input to newDeposit state
-    this.setState({
-      newDeposit: [
-        {
-          depositAmount: event.target.value,
-          note: this.state.newDeposit.note,
-        },
-      ],
-    });
+  // function to add recent deposit to currentAmount of goal
+  {
+    let goalId = id;
+    let targetGoal = this.state.goalList.find((goal) => goal.id === goalId);
+    this.setState({});
   };
 
   handleChange = (event) => {
@@ -132,23 +105,24 @@ class App extends Component {
   };
 
   handleModalDeposit = (id) =>
-    // function to add recent deposit to currentAmount of goal
-    {
-      let goalId = id;
-      let goalObject = this.state.goalList.filter((goal) => goal.id === goalId);
-      goalObject[0].currentAmount =
-        parseInt(goalObject[0].currentAmount) +
-        parseInt(this.state.newDeposit[0].depositAmount);
-      this.setState(() => {
-        this.state.goalList.map((goal) => {
-          if (goal.id === id) {
-            return { ...goalObject };
-          } else {
-            return goal;
-          }
-        });
+  // function to add recent deposit to currentAmount of goal
+  {
+    let goalId = id;
+    let goalObject = this.state.goalList.filter((goal) => goal.id === goalId);
+    goalObject[0].currentAmount =
+      parseInt(goalObject[0].currentAmount) +
+      parseInt(this.state.newDeposit[0].depositAmount);
+    this.setState(() => {
+      this.state.goalList.map((goal) => {
+        if (goal.id === id) {
+          return { ...goalObject };
+        } else {
+          return goal;
+        }
       });
-    };
+    });
+  };
+
   handleAddNewDeposit = (event) => {
     // sets value of input to newDeposit state
     event.preventDefault();
@@ -161,12 +135,13 @@ class App extends Component {
       ],
     });
   };
+
   handleNewGoalObj = (event) => {
     // Function that creates a new goal object and adds to goalList
     event.preventDefault();
-    let newName = this.state.addGoal[0].goalName;
-    let newAmount = this.state.addGoal[0].goalAmount;
-    if (this.state.addGoal.goalName !== 0) {
+    let newName = this.state.goalName;
+    let newAmount = this.state.goalAmount;
+    if (this.state.goalName !== 0) {
       let newGoalObject = {
         id: shortid.generate(),
         goalName: newName,
@@ -179,9 +154,14 @@ class App extends Component {
       });
     }
   };
+
   handleNewGoalChange = (event) => {
-    // sets info from amount to state of addGoal (struggling here)
+    // sets info from modal goal name to state of addGoal (struggling here)
     event.preventDefault();
+    let name = event.target.name
+    let value = event.target.value
+
+    this.setState({ [name]: value })
   };
 
   render() {
