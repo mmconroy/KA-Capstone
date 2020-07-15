@@ -16,13 +16,15 @@ function BudgetSetup(props) {
               type="number"
               defaultValue=""
               value={props.savingsAmount === 0 ? "" : props.savingsAmount}
-              onChange={props.handleInputChange}
+              onChange={props.handleGoalInputChange}
               name="savingsAmount"
             ></input>{" "}
           </div>
           <div className="fund">
             <label htmlFor="calculate">20% Savings Goal</label>
-            <button onClick={props.handleSubmit}>Calculate</button>{" "}
+            <button onClick={props.handleSubmitNewSavingsGoal}>
+              Calculate
+            </button>{" "}
           </div>
 
           {/* <div className="alt-goal">
