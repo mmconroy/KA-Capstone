@@ -141,7 +141,7 @@ class App extends Component {
     event.preventDefault();
     let newName = this.state.goalName;
     let newAmount = this.state.goalAmount;
-    if (this.state.goalName !== 0) {
+    if (this.state.goalName > 0) {
       let newGoalObject = {
         id: shortid.generate(),
         goalName: newName,
