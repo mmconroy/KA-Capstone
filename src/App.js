@@ -53,7 +53,7 @@ class App extends Component {
       },
     ],
   };
-  handleInputChange = (event) => {
+  handleGoalInputChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     this.setState({ [name]: value });
@@ -83,7 +83,7 @@ class App extends Component {
     });
   };
 
-  handleSubmit = (event) => {
+  handleSubmitNewSavingsGoal = (event) => {
     this.setState(
       (state) => {
         return { calculatedSavingsAmount: state.savingsAmount * 0.2 };
@@ -98,8 +98,6 @@ class App extends Component {
       }
     );
   };
-
-  newSavingsCount = () => {};
 
   handleDepositSubmit = (id) =>
     // function to add recent deposit to currentAmount of goal
@@ -141,8 +139,8 @@ class App extends Component {
           <Route exact path="/Setup">
             <BudgetSetup
               // goalList={this.state.goalList}
-              handleInputChange={this.handleInputChange}
-              onSubmit={this.handleSubmit}
+              handleGoalInputChange={this.handleGoalInputChange}
+              onSubmit={this.handleSubmitNewSavingsGoal}
               history={this.props.history}
               savingsAmount={this.state.savingsAmount}
             />
