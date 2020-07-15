@@ -52,7 +52,10 @@ class App extends Component {
         note: "",
       },
     ],
+
+    addGoal: [{ goalName: "" }, { goalAmount: "" }, { goalNotes: "" }],
   };
+
   handleGoalInputChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -128,6 +131,59 @@ class App extends Component {
     this.setState({ [name]: value });
   };
 
+  handleModalDeposit = (id) =>
+    // function to add recent deposit to currentAmount of goal
+    {
+      let goalId = id;
+      let goalObject = this.state.goalList.filter((goal) => goal.id === goalId);
+      goalObject[0].currentAmount =
+        parseInt(goalObject[0].currentAmount) +
+        parseInt(this.state.newDeposit[0].depositAmount);
+      this.setState(() => {
+        this.state.goalList.map((goal) => {
+          if (goal.id === id) {
+            return { ...goalObject };
+          } else {
+            return goal;
+          }
+        });
+      });
+    };
+  handleAddNewDeposit = (event) => {
+    // sets value of input to newDeposit state
+    event.preventDefault();
+    this.setState({
+      newDeposit: [
+        {
+          depositAmount: event.target.value,
+          note: this.state.newDeposit.note,
+        },
+      ],
+    });
+  };
+  handleNewGoalObj = (event) => {
+    // Function that creates a new goal object and adds to goalList
+    event.preventDefault();
+    let newName = this.state.addGoal[0].goalName;
+    let newAmount = this.state.addGoal[0].goalAmount;
+    if (this.state.addGoal.goalName !== 0) {
+      let newGoalObject = {
+        id: shortid.generate(),
+        goalName: newName,
+        currentAmount: "0",
+        goalAmount: newAmount,
+        goalNotes: "",
+      };
+      this.setState({
+        goalList: [...this.state.goalList, newGoalObject],
+      });
+    }
+  };
+  handleNewGoalChange = (event) => {
+    // sets info from amount to state of addGoal (struggling here)
+    event.preventDefault();
+  };
+
   render() {
     return (
       <div className="App">
@@ -151,8 +207,15 @@ class App extends Component {
                 goalList={this.state.goalList}
                 savingsAmount={this.state.SavingsAmount}
                 calculatedSavingsAmount={this.state.calculatedSavingsAmount}
+                handleAddNewDeposit={this.handleAddNewDeposit}
+                newDeposit={this.state.newDeposit}
+                addGoal={this.state.addGoal}
+                handleModalDeposit={this.handleModalDeposit}
               />
-              <NewGoalModal />
+              <NewGoalModal
+                handleNewGoalObj={this.handleNewGoalObj}
+                handleChange={this.handleNewGoalChange}
+              />
             </Route>
           </Switch>
         </Switch>
