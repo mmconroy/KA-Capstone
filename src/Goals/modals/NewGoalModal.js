@@ -22,7 +22,7 @@ function NewGoalModal(props) {
                 onRequestClose={() => setModalIsOpen(false)}
             >
                 <div className="formDiv">
-                    <form className="goalForm" id="goalForm" onSubmit={props.handleSubmit}>
+                    <form className="goalForm" id="goalForm" onSubmit={props.handleNewGoalObj}>
 
                         <div className="newGoalName">
                             <label className="label" htmlFor="goalName">

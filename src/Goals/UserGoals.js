@@ -9,14 +9,15 @@ import { withRouter } from "react-router-dom";
 
 function findPercentage(goal, current) {
     // function to calculate percentage of goal total
-    return (current / goal) * 100
+    let percent = (current / goal) * 100;
+    return Math.floor(percent)
 }
 
 function UserGoals(props) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.handleSubmit(props.goalItem.id)
+        props.handleModalDeposit(props.goalItem.id)
     }
     return (
         <div className='goalInfo'>
@@ -67,7 +68,7 @@ function UserGoals(props) {
                             </label>
                             <br />
                             <input
-                                onChange={props.handleDeposit}
+                                onChange={props.handleAddNewDeposit}
                                 type="number"
                                 name=" depositAmount"
                                 className=" depositAmount input"
