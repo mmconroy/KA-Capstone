@@ -1,10 +1,18 @@
+.goals__wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://trello-attachments.s3.amazonaws.com/5f02e03a4b858d806aed36e5/414x716/7a034701441201b68a960cf8179af6f0/background.png");
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
 .progressBar {
   margin: 6em 2em;
   margin-bottom: 1.5em;
   text-align: center;
-    h3 {
-      margin-top: 1em;
-    }
+  h3 {
+    margin-top: 1em;
+  }
 }
 .react-sweet-progress {
   margin-top: 1em;
@@ -25,10 +33,15 @@
   }
 }
 
+.goalName {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
 .userGoals {
-    .goalList {
-      padding-left: 1.5em;
-    }
+  .goalList {
+    padding-left: 1.5em;
+  }
 }
 
 .emptyScreen {

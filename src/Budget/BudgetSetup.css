@@ -1,31 +1,23 @@
-/* * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-  background-image: url(https://trello-attachments.s3.amazonaws.com/5f02e03a4b858d806aed36e5/414x716/7a034701441201b68a960cf8179af6f0/background.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  object-fit: cover;
-} */
-.fund-page{
+/* top right bottom left  */
+
+.fund-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .fund-title {
+  width: 80%;
   text-align: center;
-  margin: 4em;
+  margin: 10rem 0 1rem 0;
 }
 
 .fund-form {
   display: flex;
   justify-content: center;
-  margin: 0.5em;
-  padding: 1em;
+  margin: 0.5rem;
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -43,12 +35,11 @@ input {
   justify-content: center;
   align-items: center;
 }
-label{
+label {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
 button {
   border-radius: 12px;
@@ -60,16 +51,16 @@ button {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 2px;
 }
-  
+
 button:hover {
   background-color: rgb(243, 201, 105);
   color: white;
 }
-.alt-goal{
+.alt-goal {
   margin: 3em;
   margin-bottom: 5px;
   padding: 2em;
- display: flex;
- flex-direction: column;
- justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

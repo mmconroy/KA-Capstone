@@ -7,6 +7,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import logo from "./logo.svg";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import honeycomb from "./honeycombs.png";
 
 export default function SimpleMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -34,7 +35,7 @@ export default function SimpleMenu() {
             aria-haspopup="true"
             onClick={handleClick}
             className="logo"
-            src={logo}
+            src={honeycomb}
             style={{
               width: "24px",
               height: "24px",

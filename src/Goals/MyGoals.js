@@ -24,32 +24,49 @@ function MyGoals(props) {
 
   return (
     <>
-      <div className="progressBar">
-        <h3 className="goalName"> Goals </h3>
-        <Progress percent={Number(findSavingsPercentage())} />
-      </div>
+      <div className="goals__wrapper">
+        <div className="progressBar">
+          <h3 className="goalName"> Your Yearly Savings Goal </h3>
+          <Progress
+            percent={Number(findSavingsPercentage())}
+            theme={{
+              success: {
+                color: "#D4FCC3",
+              },
+              active: {
+                color: "#DF8B21",
+              },
+              default: {
+                color: "#fbc630",
+              },
+            }}
+          />{" "}
+        </div>
 
-      <div className="goalFooter">
-        <h3 className="money">
-          {totalCurrentAmount} / ${totalGoalAmount}
-        </h3>{" "}
-        <hr />
-      </div>
+        <div className="goalFooter">
+          <h3 className="money">
+            ${totalCurrentAmount} / ${totalGoalAmount}
+          </h3>{" "}
+          <hr />
+        </div>
 
-      {/* Maps through goals and renders them on page */}
-      <div className="userGoals">
-        <ul className="goalList">
-          {props.goalList.map((goalItem) => (
-            <UserGoals
-              handleAddNewDeposit={props.handleAddNewDeposit}
-              handleModalDeposit={props.handleModalDeposit}
-              goalItem={goalItem}
-              key={goalItem.id}
-              goals={props.goalList}
-              newDeposit={props.newDeposit}
-            />
-          ))}
-        </ul>
+        {/* Maps through goals and renders them on page */}
+        <div className="userGoals">
+          <h3 className="goalName"> Your Individual Goals </h3>
+
+          <ul className="goalList">
+            {props.goalList.map((goalItem) => (
+              <UserGoals
+                handleAddNewDeposit={props.handleAddNewDeposit}
+                handleModalDeposit={props.handleModalDeposit}
+                goalItem={goalItem}
+                key={goalItem.id}
+                goals={props.goalList}
+                newDeposit={props.newDeposit}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );

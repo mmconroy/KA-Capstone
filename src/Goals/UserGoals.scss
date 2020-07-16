@@ -1,40 +1,46 @@
 .goalInfo {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-        .icon {
-            margin-right: 2em;
-            img {
-                margin-top: .6em;
-                height: 3em;
-            }
-        }
-        .goalProgress {
-            font-size: 18px;
-            width: 15em;
-            margin-right: 2em;
-            margin-bottom: 2em;
-                .react-sweet-progress {
-                    margin-bottom: .4em;
-                    margin-top: .5em;
-                }
-                .moneyLevel {
-                    display: flex;
-                    flex-direction: row;
-                    font-size: 18px;
-                        p {
-                            margin-top: -.01em;
-                            padding-right: 2px;
-                        }
-                        .spacer {
-                            margin: 0 1em;
-                        }
-                }
-                hr {
-                    border: 1px solid rgba(201, 201, 201, 0.384);
-                    width: 95%;
-                    margin: 0 0;
-                  }
-        }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  .icon {
+    margin-right: 2em;
+    img {
+      margin-top: 0.6em;
+      height: 3em;
+    }
+  }
+
+  .goalName {
+    text-align: center;
+    color: blue;
+  }
+
+  .goalProgress {
+    font-size: 18px;
+    width: 15em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+    .react-sweet-progress {
+      margin-bottom: 0.4em;
+      margin-top: 0.5em;
+    }
+    .moneyLevel {
+      display: flex;
+      flex-direction: row;
+      font-size: 18px;
+      p {
+        margin-top: -0.01em;
+        padding-right: 2px;
+      }
+      .spacer {
+        margin: 0 1em;
+      }
+    }
+    hr {
+      border: 1px solid rgba(201, 201, 201, 0.384);
+      width: 95%;
+      margin: 0 0;
+    }
+  }
 }

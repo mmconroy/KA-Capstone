@@ -1,77 +1,57 @@
 .image {
-    margin-top: 10em;
+  margin-top: 10em;
 }
 
 .modalBox {
-    height: 33em;
-    background-color: rgb(236, 236, 236);
-    margin-top: 9em;
-    margin-left: 2em;
-    margin-right: 2em;
-    border-radius: 10px;
-    border: 2px solid rgb(218, 218, 218);
-  }
-  
-  .formDiv {
-    margin: 0em auto;
-    width: min-content;
-    .goalForm {
-      .input {
-        background-color: white;
-        border-radius: 20px;
-        margin-bottom: 2em;
-        margin-top: 1em;
-        width: 15em;
-        height: .5em;
-        border: 1px solid grey;
-        padding-left: 1em;
-      }
-      .input2 {
-        background-color: white;
-        border-radius: 20px;
-        margin-bottom: 1em;
-        margin-top: 1em;
-        width: 16em;
-        height: 8em;
-        border: 1px solid grey;
-        padding-left: 1em;
-        padding-top: 1em;
-      }
-    }
-    .submitBtn {
-      text-align: center;
-      margin-top: .5em;
-      .saveGoal {
-        display: inline-block;
-        box-shadow: 0px 10px 14px -7px #276873;
-        padding: 0.7em 1.5em;
-        text-decoration: none;
-        background-color: #fcfc62;
-        border: 1px solid #ecec53;
-        border-radius: 8px;
-        color: rgb(61, 61, 61);
-        border-top-left-radius: 25px;
-        border-bottom-right-radius: 25px;
-        transform: skew(-21deg);
-        &:hover {
-          background-color: #ecec53;
-        }
-        & > span {
-          display: inline-block;
-          transform: skew(21deg);
-        }
-      }
-    }
-  }
+  height: 31em;
+  background-color: rgb(236, 236, 236);
+  margin-top: 9em;
+  margin-left: 2em;
+  margin-right: 2em;
+  border-radius: 10px;
+  border: 2px solid rgb(218, 218, 218);
+}
 
-  .newGoal {
-    position: fixed;
-    bottom: 4em;
-    left: 35%;
-    width: min-content;
-    height: min-content;
-    .addGoal {
-      width: 8.5em;
+.formDiv {
+  display: flex;
+  flex-direction: column;
+  margin: 0em auto;
+  width: min-content;
+  .goalForm {
+    .input {
+      background-color: white;
+      border-radius: 20px;
+      margin-bottom: 1em;
+      margin-top: 1em;
+      width: 15em;
+      height: 0.5em;
+      border: 1px solid grey;
+      padding-left: 1em;
+      font-family: "Lora", serif;
+    }
+    .input2 {
+      background-color: white;
+      border-radius: 20px;
+      margin-bottom: 1em;
+      margin-top: 1em;
+      width: 16em;
+      height: 8em;
+      border: 1px solid grey;
+      padding-left: 1em;
+      padding-top: 1em;
+      font-family: "Lora", serif;
+    }
+
+    .label {
+      font-family: "Lora", serif;
+    }
+  }
+  .submitBtn {
+    text-align: center;
+    margin-top: 0.5em;
+
+    .saveGoal {
+      font-family: "Lora", serif;
       display: inline-block;
       box-shadow: 0px 10px 14px -7px #276873;
       padding: 0.7em 1.5em;
@@ -92,5 +72,33 @@
       }
     }
   }
-  
-  
+}
+
+.newGoal {
+  position: fixed;
+  bottom: 4em;
+  left: 35%;
+  width: min-content;
+  height: min-content;
+  .addGoal {
+    width: 8.5em;
+    display: inline-block;
+    box-shadow: 0px 10px 14px -7px #276873;
+    padding: 0.7em 1.5em;
+    text-decoration: none;
+    background-color: #fcfc62;
+    border: 1px solid #ecec53;
+    border-radius: 8px;
+    color: rgb(61, 61, 61);
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    transform: skew(-21deg);
+    &:hover {
+      background-color: #ecec53;
+    }
+    & > span {
+      display: inline-block;
+      transform: skew(21deg);
+    }
+  }
+}

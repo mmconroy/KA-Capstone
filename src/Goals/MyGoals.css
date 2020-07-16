@@ -1,48 +1,34 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.header {
-  background-color: #fcfc58c5;
+.goals__wrapper {
   width: 100vw;
-  height: 4em;
-  padding-top: 1.5em;
-  padding-bottom: .5em;
-  margin-bottom: 5em;
+  height: 100vh;
+  background-image: url("https://trello-attachments.s3.amazonaws.com/5f02e03a4b858d806aed36e5/414x716/7a034701441201b68a960cf8179af6f0/background.png");
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.progressBar {
+  margin: 6em 2em;
+  margin-bottom: 1.5em;
   text-align: center;
 }
 
-.goal {
-  margin-left: 2em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  text-align: center;
-  margin-bottom: 1em;
-}
-
-.goal .hexagon {
-  margin-right: 1em;
-  margin-top: .5em;
-}
-
-.goal .progress {
+.progressBar h3 {
   margin-top: 1em;
-  width: 15em;
 }
 
-.goal .react-sweet-progress {
-  margin-top: .5em;
+.react-sweet-progress {
+  margin-top: 1em;
+}
+
+.goalFooter {
+  margin-top: 1em;
+  margin-bottom: 3em;
 }
 
 .goalFooter h3 {
   text-align: center;
-  margin-bottom: .5em;
+  margin-bottom: 1em;
+  font-family: "Lora", serif;
 }
 
 .goalFooter hr {
@@ -51,7 +37,16 @@
   margin: 0 auto;
 }
 
-.recentActivity {
+.goalName {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.userGoals .goalList {
+  padding-left: 1.5em;
+}
+
+.emptyScreen {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -65,23 +60,25 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-top: 3em;
 }
 
-.recentActivity h2 {
-  margin-top: 3em;
+.emptyScreen h2 {
+  font-family: "Lora", serif;
+  margin-top: 2em;
   font-weight: 400;
   font-size: 22px;
   text-align: center;
   width: 60%;
   margin-left: 3.5em;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 }
 
-.recentActivity .img {
+.emptyScreen .img {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   -ms-grid-column-align: center;
       justify-self: center;
 }
-/*# sourceMappingURL=GoalsDetail.css.map */
+/*# sourceMappingURL=MyGoals.css.map */

@@ -7,7 +7,10 @@ function BudgetSetup(props) {
     <div>
       <div className="fund-page">
         <div className="fund-title">
-          <h1>Funds</h1>
+          <h3>
+            To get started, enter 20% of your yearly income. That's how much
+            you'll want to put toward your savings.{" "}
+          </h3>
         </div>
         <form onSubmit={props.onSubmit}>
           <div className="fund-form">
@@ -21,7 +24,6 @@ function BudgetSetup(props) {
             ></input>{" "}
           </div>
           <div className="fund">
-            <label htmlFor="calculate">20% Savings Goal</label>
             <button onClick={props.handleSubmitNewSavingsGoal}>
               Calculate
             </button>{" "}
