@@ -20,8 +20,22 @@ class App extends Component {
       {
         id: shortid.generate(),
         goalName: "Rainy Day Fund",
-        currentAmount: "300",
-        goalAmount: "1000",
+        currentAmount: 300,
+        goalAmount: 1000,
+        goalNotes: "",
+      },
+      {
+        id: shortid.generate(),
+        goalName: "Get Matt a hobby",
+        currentAmount: 100,
+        goalAmount: 1000,
+        goalNotes: "",
+      },
+      {
+        id: shortid.generate(),
+        goalName: "Get Matt a hobby",
+        currentAmount: 100,
+        goalAmount: 1000,
         goalNotes: "",
       },
     ],
@@ -41,24 +55,31 @@ class App extends Component {
     ],
   };
 
-  handleSavingsDeposit = (id) =>
-    // function to add recent deposit to currentAmount of goal
-    {
-      let goalId = id;
-      let goalObject = this.state.goalList.filter((goal) => goal.id === goalId);
-      goalObject[0].currentAmount =
-        parseInt(goalObject[0].currentAmount) +
-        parseInt(this.state.newDeposit[0].depositAmount); //dont need this part?//
-      this.setState(() => {
-        this.state.goalList.map((goal) => {
-          if (goal.id === id) {
-            return { ...goalObject };
-          } else {
-            return goal;
-          }
-        });
+  calcTotalProgress = () => {
+    const currentAmountTotal = this.state.goalList.reduce(
+      (totalAmount, goal) => Number(totalAmount) + Number(goal.currentAmount),
+      0
+    );
+    console.log(currentAmountTotal);
+    return currentAmountTotal;
+  };
+
+  handleSavingsDeposit = (id) => {
+    let goalId = id;
+    let goalObject = this.state.goalList.filter((goal) => goal.id === goalId);
+    goalObject[0].currentAmount =
+      goalObject[0].currentAmount * 1 +
+      this.state.newDeposit[0].depositAmount * 1;
+    this.setState((state) => {
+      state.goalList.map((goal) => {
+        if (goal.id === id) {
+          return { ...goalObject };
+        } else {
+          return goal;
+        }
       });
-    };
+    });
+  };
 
   handleGoalInputChange = (event) => {
     const name = event.target.name;
