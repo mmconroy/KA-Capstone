@@ -20,10 +20,24 @@ class App extends Component {
       {
         id: shortid.generate(),
         goalName: "Rainy Day Fund",
-        currentAmount: "0",
-        goalAmount: "1000",
+        currentAmount: 300,
+        goalAmount: 1000,
         goalNotes: "",
-      }
+      },
+      {
+        id: shortid.generate(),
+        goalName: "Get Matt a hobby",
+        currentAmount: 100,
+        goalAmount: 1000,
+        goalNotes: "",
+      },
+      {
+        id: shortid.generate(),
+        goalName: "Get Matt a hobby",
+        currentAmount: 100,
+        goalAmount: 1000,
+        goalNotes: "",
+      },
     ],
 
     newGoal: "",
@@ -39,6 +53,32 @@ class App extends Component {
         note: "",
       },
     ],
+  };
+
+  calcTotalProgress = () => {
+    const currentAmountTotal = this.state.goalList.reduce(
+      (totalAmount, goal) => Number(totalAmount) + Number(goal.currentAmount),
+      0
+    );
+    console.log(currentAmountTotal);
+    return currentAmountTotal;
+  };
+
+  handleSavingsDeposit = (id) => {
+    let goalId = id;
+    let goalObject = this.state.goalList.filter((goal) => goal.id === goalId);
+    goalObject[0].currentAmount =
+      goalObject[0].currentAmount * 1 +
+      this.state.newDeposit[0].depositAmount * 1;
+    this.setState((state) => {
+      state.goalList.map((goal) => {
+        if (goal.id === id) {
+          return { ...goalObject };
+        } else {
+          return goal;
+        }
+      });
+    });
   };
 
   handleGoalInputChange = (event) => {
@@ -88,12 +128,12 @@ class App extends Component {
   };
 
   handleDepositSubmit = (id) =>
-  // function to add recent deposit to currentAmount of goal
-  {
-    let goalId = id;
-    let targetGoal = this.state.goalList.find((goal) => goal.id === goalId);
-    this.setState({});
-  };
+    // function to add recent deposit to currentAmount of goal
+    {
+      let goalId = id;
+      let targetGoal = this.state.goalList.find((goal) => goal.id === goalId);
+      this.setState({});
+    };
 
   handleChange = (event) => {
     // Generic handle change function
@@ -105,23 +145,23 @@ class App extends Component {
   };
 
   handleModalDeposit = (id) =>
-  // function to add recent deposit to currentAmount of goal
-  {
-    let goalId = id;
-    let goalObject = this.state.goalList.filter((goal) => goal.id === goalId);
-    goalObject[0].currentAmount =
-      parseInt(goalObject[0].currentAmount) +
-      parseInt(this.state.newDeposit[0].depositAmount);
-    this.setState(() => {
-      this.state.goalList.map((goal) => {
-        if (goal.id === id) {
-          return { ...goalObject };
-        } else {
-          return goal;
-        }
+    // function to add recent deposit to currentAmount of goal
+    {
+      let goalId = id;
+      let goalObject = this.state.goalList.filter((goal) => goal.id === goalId);
+      goalObject[0].currentAmount =
+        parseInt(goalObject[0].currentAmount) +
+        parseInt(this.state.newDeposit[0].depositAmount);
+      this.setState(() => {
+        this.state.goalList.map((goal) => {
+          if (goal.id === id) {
+            return { ...goalObject };
+          } else {
+            return goal;
+          }
+        });
       });
-    });
-  };
+    };
 
   handleAddNewDeposit = (event) => {
     // sets value of input to newDeposit state
@@ -158,10 +198,10 @@ class App extends Component {
   handleNewGoalChange = (event) => {
     // sets info from modal goal name to state of addGoal (struggling here)
     event.preventDefault();
-    let name = event.target.name
-    let value = event.target.value
+    let name = event.target.name;
+    let value = event.target.value;
 
-    this.setState({ [name]: value })
+    this.setState({ [name]: value });
   };
 
   render() {
@@ -191,6 +231,7 @@ class App extends Component {
                 newDeposit={this.state.newDeposit}
                 addGoal={this.state.addGoal}
                 handleModalDeposit={this.handleModalDeposit}
+                calcTotalProgress={this.calcTotalProgress}
               />
               <NewGoalModal
                 handleNewGoalObj={this.handleNewGoalObj}
