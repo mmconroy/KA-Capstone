@@ -10,11 +10,22 @@ import UserGoals from "./UserGoals";
 function MyGoals(props) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
+  function findSavingsPercentage() {
+    let percent = (current / goal) * 100;
+    console.log(percent);
+    return Math.floor(percent);
+  }
+
   return (
     <>
       <div className="progressBar">
         <h3 className="goalName"> Goals </h3>
-        <Progress percent={0} />
+        <Progress
+          percent={findSavingsPercentage(
+            props.calculatedSavingsAmount,
+            props.calcTotalProgress
+          )}
+        />
       </div>
 
       <div className="goalFooter">
