@@ -2,15 +2,11 @@ import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route, withRouter } from "react-router-dom";
 import shortid from "shortid";
-import Landing from "./Landing/Landing";
 import TopMenu from "./Menu/TopMenu";
-import BottomMenu from "./Menu/BottomMenu";
 import Splash from "./Landing/Splash";
 import BudgetSetup from "./Budget/BudgetSetup";
-import Login from "./Login/Login";
 import NewGoalModal from "./Goals/modals/NewGoalModal";
 import MyGoals from "./Goals/MyGoals";
-import UserGoals from "./Goals/UserGoals";
 
 const GOALS_KEY = "myapp_goals";
 
@@ -204,6 +200,14 @@ class App extends Component {
     this.setState({ [name]: value });
   };
 
+  deleteItem = (title) => {
+    const list = [...this.state.goalList];
+
+    const updatedList = list.filter((item) => item.title !== title);
+
+    this.setState({ goalList: updatedList });
+  };
+
   render() {
     return (
       <div className="App">
@@ -224,6 +228,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/Goals">
               <MyGoals
+                deleteItem={this.deleteItem}
                 goalList={this.state.goalList}
                 savingsAmount={this.state.SavingsAmount}
                 calculatedSavingsAmount={this.state.calculatedSavingsAmount}

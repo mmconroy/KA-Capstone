@@ -1,0 +1,77 @@
+.modal {
+  height: 28em;
+  background-color: #ececec;
+  margin-top: 10em;
+  margin-left: 2em;
+  margin-right: 2em;
+  padding-top: 2em;
+  border-radius: 10px;
+  border: 2px solid #dadada;
+}
+
+.formDiv {
+  font-family: "Lora", serif;
+  margin: 0 auto;
+  margin-top: 2em;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+.formDiv .depositForm .input {
+  font-family: "Lora", serif;
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 2em;
+  margin-top: 1em;
+  width: 15em;
+  height: 0.5em;
+  border: 1px solid grey;
+  padding-left: 1em;
+}
+
+.formDiv .depositForm .input2 {
+  font-family: "Lora", serif;
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 3em;
+  margin-top: 1em;
+  width: 16em;
+  height: 8em;
+  border: 1px solid grey;
+  padding-left: 1em;
+  padding-top: 1em;
+}
+
+.formDiv .submitBtn {
+  text-align: center;
+  margin-top: 0.5em;
+}
+
+.formDiv .submitBtn .saveDeposit {
+  font-family: "Lora", serif;
+  display: inline-block;
+  -webkit-box-shadow: 0px 10px 14px -7px #276873;
+          box-shadow: 0px 10px 14px -7px #276873;
+  padding: 0.7em 2em;
+  text-decoration: none;
+  background-color: #fcfc62;
+  border: 1px solid #ecec53;
+  border-radius: 8px;
+  color: #3d3d3d;
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  -webkit-transform: skew(-21deg);
+          transform: skew(-21deg);
+}
+
+.formDiv .submitBtn .saveDeposit:hover {
+  background-color: #ecec53;
+}
+
+.formDiv .submitBtn .saveDeposit > span {
+  display: inline-block;
+  -webkit-transform: skew(21deg);
+          transform: skew(21deg);
+}
+/*# sourceMappingURL=GoalDepositModal.css.map */

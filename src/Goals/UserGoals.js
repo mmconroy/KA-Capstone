@@ -36,6 +36,17 @@ function UserGoals(props) {
             props.goalItem.goalAmount,
             props.goalItem.currentAmount
           )}
+          theme={{
+            success: {
+              color: "#D4FCC3",
+            },
+            active: {
+              color: "#DF8B21",
+            },
+            default: {
+              color: "#fbc630",
+            },
+          }}
         />
 
         <div className="moneyLevel">
@@ -92,6 +103,11 @@ function UserGoals(props) {
             <button className="saveDeposit" type="submit" form=" depositForm">
               <span onClick={() => setModalIsOpen(false)}> Deposit </span>
             </button>
+            {/* <button className="saveDeposit" type="delete" form=" depositForm">
+              <span onClick={() => props.deleteItem(props.goalList.title)}>
+                Delete Item
+              </span>
+            </button> */}
           </div>
         </div>
       </Modal>

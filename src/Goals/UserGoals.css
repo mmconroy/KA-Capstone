@@ -1,0 +1,67 @@
+.goalInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.goalInfo .icon {
+  margin-right: 2em;
+}
+
+.goalInfo .icon img {
+  margin-top: 0.6em;
+  height: 3em;
+}
+
+.goalInfo .goalName {
+  text-align: center;
+  color: blue;
+}
+
+.goalInfo .goalProgress {
+  font-size: 18px;
+  width: 15em;
+  margin-right: 2em;
+  margin-bottom: 2em;
+}
+
+.goalInfo .goalProgress .react-sweet-progress {
+  margin-bottom: 0.4em;
+  margin-top: 0.5em;
+}
+
+.goalInfo .goalProgress .moneyLevel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-size: 18px;
+}
+
+.goalInfo .goalProgress .moneyLevel p {
+  margin-top: -0.01em;
+  padding-right: 2px;
+}
+
+.goalInfo .goalProgress .moneyLevel .spacer {
+  margin: 0 1em;
+}
+
+.goalInfo .goalProgress hr {
+  border: 1px solid rgba(201, 201, 201, 0.384);
+  width: 95%;
+  margin: 0 0;
+}
+/*# sourceMappingURL=UserGoals.css.map */
