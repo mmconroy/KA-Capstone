@@ -17,7 +17,7 @@ function BudgetSetup(props) {
           <div className="fund-form">
             <input
               placeholder="$ Enter Amount"
-              type="number"
+              type="text"
               defaultValue=""
               value={props.savingsAmount === 0 ? "" : props.savingsAmount}
               onChange={props.handleGoalInputChange}
