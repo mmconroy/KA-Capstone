@@ -81,4 +81,10 @@
   -ms-grid-column-align: center;
       justify-self: center;
 }
+
+@media (min-width: 699px) {
+  .goals__wrapper {
+    background-position: center;
+  }
+}
 /*# sourceMappingURL=MyGoals.css.map */

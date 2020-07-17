@@ -19,11 +19,23 @@
   transform: translate(-50%, -50%);
 }
 
-.splash-text {
+.splash-copy {
+  margin-top: 1rem;
+  width: 80%;
   font-family: "Lora", serif;
   color: #362c28;
   position: fixed;
   top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.splash-text {
+  font-family: "Lora", serif;
+  color: #362c28;
+  position: fixed;
+  top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
   animation: text 2s infinite;

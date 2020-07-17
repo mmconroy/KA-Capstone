@@ -9,7 +9,7 @@ export class Splash extends Component {
     return (
       <div className="splash__wrapper">
         <img src={loading_img} alt="Bee Logo" className="loading-img" />
-        {/* <p className="splash-text">Tap here to begin ➡️</p> */}
+        <p className="splash-copy">Budgeting doesn't have to BEE a secret.</p>
         <Link className="splash-text" to="/Setup">
           Tap Here to Begin
         </Link>

@@ -74,8 +74,7 @@ function MyGoals(props) {
 
 export default MyGoals;
 
-{
-  /* <div className="emptyScreen">
+/* <div className="emptyScreen">
         <div className="img">
           <img
             className="bankIcon"
@@ -87,4 +86,3 @@ export default MyGoals;
           once you create your first goal it will appear here.
           </h2>
       </div> */
-}
