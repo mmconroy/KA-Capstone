@@ -12,9 +12,11 @@ function MyGoals(props) {
   const [totalCurrentAmount, setTotalCurrentAmount] = useState(
     props.goalList.reduce((curr, val) => curr + val.currentAmount, 0)
   );
+  console.log(totalCurrentAmount);
   const [totalGoalAmount, setTotalGoalAmount] = useState(
     props.goalList.reduce((curr, val) => curr + val.goalAmount, 0)
   );
+  console.log(totalGoalAmount);
 
   function findSavingsPercentage() {
     let percent = (totalCurrentAmount / totalGoalAmount) * 100;

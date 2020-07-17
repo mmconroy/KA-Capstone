@@ -10,7 +10,7 @@ import MyGoals from "./Goals/MyGoals";
 
 const GOALS_KEY = "myapp_goals";
 
-class App extends Component {
+class App extends React.Component {
   state = {
     goalList: [
       {
@@ -37,8 +37,8 @@ class App extends Component {
     ],
 
     newGoal: "",
-    savingsAmount: 0,
-    calculatedSavingsAmount: 0,
+    savingsAmount: "",
+    calculatedSavingsAmount: "",
 
     goalName: "",
     goalAmount: "",
@@ -56,10 +56,21 @@ class App extends Component {
       (totalAmount, goal) => Number(totalAmount) + Number(goal.currentAmount),
       0
     );
-    console.log(currentAmountTotal);
     return currentAmountTotal;
   };
 
+  componentDidMount() {
+    const goalString = localStorage.getItem(GOALS_KEY);
+    if (goalString) {
+      this.setState({ goalList: JSON.parse(goalString) });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.goaloList !== this.state.goalList) {
+      localStorage.setItem(GOALS_KEY, JSON.stringify(this.state.goalList));
+    }
+  }
   handleSavingsDeposit = (id) => {
     let goalId = id;
     let goalObject = this.state.goalList.filter((goal) => goal.id === goalId);
@@ -82,18 +93,6 @@ class App extends Component {
     const value = event.target.value;
     this.setState({ [name]: value });
   };
-  componentDidMount() {
-    const goalString = localStorage.getItem(GOALS_KEY);
-    if (goalString) {
-      this.setState({ goalList: JSON.parse(goalString) });
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.goaloList !== this.state.goalList) {
-      localStorage.setItem(GOALS_KEY, JSON.stringify(this.state.goalList));
-    }
-  }
 
   handleAddNewGoal = () => {
     let newGoal = {
@@ -220,14 +219,13 @@ class App extends Component {
           <Switch>
             <Route exact path="/Goals">
               <MyGoals
+                calculatedSavingsAmount={this.state.calculatedSavingsAmount}
                 goalList={this.state.goalList}
                 savingsAmount={this.state.SavingsAmount}
-                calculatedSavingsAmount={this.state.calculatedSavingsAmount}
                 handleAddNewDeposit={this.handleAddNewDeposit}
                 newDeposit={this.state.newDeposit}
                 addGoal={this.state.addGoal}
                 handleModalDeposit={this.handleModalDeposit}
-                calcTotalProgress={this.calcTotalProgress}
               />
               <NewGoalModal
                 handleNewGoalObj={this.handleNewGoalObj}
