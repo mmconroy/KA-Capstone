@@ -12,22 +12,14 @@ const GOALS_KEY = "myapp_goals";
 
 class App extends React.Component {
   state = {
-    goalList: [
-      {
-        id: shortid.generate(),
-        goalName: "Rainy Day Fund",
-        currentAmount: 0,
-        goalAmount: 1000,
-        goalNotes: "",
-      }
-    ],
 
+    goalList: [],
     newGoal: "",
-    savingsAmount: "",
-    calculatedSavingsAmount: "",
+    savingsAmount: 0,
+    calculatedSavingsAmount: 0,
 
     goalName: "",
-    goalAmount: "",
+    goalAmount: 0,
 
     newDeposit: [
       {
@@ -109,12 +101,12 @@ class App extends React.Component {
   };
 
   handleDepositSubmit = (id) =>
-  // function to add recent deposit to currentAmount of goal
-  {
-    let goalId = id;
-    let targetGoal = this.state.goalList.find((goal) => goal.id === goalId);
-    this.setState({});
-  };
+    // function to add recent deposit to currentAmount of goal
+    {
+      let goalId = id;
+      let targetGoal = this.state.goalList.find((goal) => goal.id === goalId);
+      this.setState({});
+    };
 
   handleChange = (event) => {
     // Generic handle change function
@@ -126,23 +118,23 @@ class App extends React.Component {
   };
 
   handleModalDeposit = (id) =>
-  // function to add recent deposit to currentAmount of goal
-  {
-    let goalId = id;
-    let goalObject = this.state.goalList.filter((goal) => goal.id === goalId);
-    goalObject[0].currentAmount =
-      parseInt(goalObject[0].currentAmount) +
-      parseInt(this.state.newDeposit[0].depositAmount);
-    this.setState(() => {
-      this.state.goalList.map((goal) => {
-        if (goal.id === id) {
-          return { ...goalObject };
-        } else {
-          return goal;
-        }
+    // function to add recent deposit to currentAmount of goal
+    {
+      let goalId = id;
+      let goalObject = this.state.goalList.filter((goal) => goal.id === goalId);
+      goalObject[0].currentAmount =
+        parseInt(goalObject[0].currentAmount) +
+        parseInt(this.state.newDeposit[0].depositAmount);
+      this.setState(() => {
+        this.state.goalList.map((goal) => {
+          if (goal.id === id) {
+            return { ...goalObject };
+          } else {
+            return goal;
+          }
+        });
       });
-    });
-  };
+    };
 
   handleAddNewDeposit = (event) => {
     // sets value of input to newDeposit state
@@ -212,6 +204,7 @@ class App extends React.Component {
                 newDeposit={this.state.newDeposit}
                 addGoal={this.state.addGoal}
                 handleModalDeposit={this.handleModalDeposit}
+                calculatedSavingsAmount={this.calculatedSavingsAmount}
               />
               <NewGoalModal
                 handleNewGoalObj={this.handleNewGoalObj}
