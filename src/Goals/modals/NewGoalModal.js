@@ -70,7 +70,7 @@ function NewGoalModal(props) {
 
           <div className="submitBtn">
             <button className="saveGoal" type="submit" form="goalForm">
-              <span onClick={() => setModalIsOpen(false)}> Save Goal </span>
+              <span> Save Goal </span>
             </button>
           </div>
         </div>

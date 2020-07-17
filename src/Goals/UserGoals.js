@@ -101,7 +101,7 @@ function UserGoals(props) {
 
           <div className="submitBtn">
             <button className="saveDeposit" type="submit" form=" depositForm">
-              <span onClick={() => setModalIsOpen(false)}> Deposit </span>
+              <span> Deposit </span>
             </button>
             {/* <button className="saveDeposit" type="delete" form=" depositForm">
               <span onClick={() => props.deleteItem(props.goalList.title)}>

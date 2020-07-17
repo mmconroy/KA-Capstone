@@ -26,14 +26,7 @@ class App extends Component {
         currentAmount: 100,
         goalAmount: 1000,
         goalNotes: "",
-      },
-      {
-        id: shortid.generate(),
-        goalName: "Get Matt a hobby",
-        currentAmount: 100,
-        goalAmount: 1000,
-        goalNotes: "",
-      },
+      }
     ],
 
     newGoal: "",
@@ -124,12 +117,12 @@ class App extends Component {
   };
 
   handleDepositSubmit = (id) =>
-    // function to add recent deposit to currentAmount of goal
-    {
-      let goalId = id;
-      let targetGoal = this.state.goalList.find((goal) => goal.id === goalId);
-      this.setState({});
-    };
+  // function to add recent deposit to currentAmount of goal
+  {
+    let goalId = id;
+    let targetGoal = this.state.goalList.find((goal) => goal.id === goalId);
+    this.setState({});
+  };
 
   handleChange = (event) => {
     // Generic handle change function
@@ -141,23 +134,23 @@ class App extends Component {
   };
 
   handleModalDeposit = (id) =>
-    // function to add recent deposit to currentAmount of goal
-    {
-      let goalId = id;
-      let goalObject = this.state.goalList.filter((goal) => goal.id === goalId);
-      goalObject[0].currentAmount =
-        parseInt(goalObject[0].currentAmount) +
-        parseInt(this.state.newDeposit[0].depositAmount);
-      this.setState(() => {
-        this.state.goalList.map((goal) => {
-          if (goal.id === id) {
-            return { ...goalObject };
-          } else {
-            return goal;
-          }
-        });
+  // function to add recent deposit to currentAmount of goal
+  {
+    let goalId = id;
+    let goalObject = this.state.goalList.filter((goal) => goal.id === goalId);
+    goalObject[0].currentAmount =
+      parseInt(goalObject[0].currentAmount) +
+      parseInt(this.state.newDeposit[0].depositAmount);
+    this.setState(() => {
+      this.state.goalList.map((goal) => {
+        if (goal.id === id) {
+          return { ...goalObject };
+        } else {
+          return goal;
+        }
       });
-    };
+    });
+  };
 
   handleAddNewDeposit = (event) => {
     // sets value of input to newDeposit state
@@ -177,7 +170,7 @@ class App extends Component {
     event.preventDefault();
     let newName = this.state.goalName;
     let newAmount = this.state.goalAmount;
-    if (this.state.goalName > 0) {
+    if (this.state.goalName !== 0) {
       let newGoalObject = {
         id: shortid.generate(),
         goalName: newName,
