@@ -51,12 +51,10 @@ function MyGoals(props) {
           </h3>{" "}
           <hr />
         </div>
-
-        {/* Maps through goals and renders them on page */}
         <div className="userGoals">
-          <h3 className="goalName"> Your Individual Goals </h3>
-
+          {/* <h3 className="goalName"> Your Individual Goals </h3> */}
           <ul className="goalList">
+            {/* Maps through goals and renders them on page */}
             {props.goalList.map((goalItem) => (
               <UserGoals
                 handleAddNewDeposit={props.handleAddNewDeposit}
