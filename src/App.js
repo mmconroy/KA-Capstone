@@ -85,12 +85,12 @@ class App extends Component {
   componentDidMount() {
     const goalString = localStorage.getItem(GOALS_KEY);
     if (goalString) {
-      this.setState({ todoList: JSON.parse(goalString) });
+      this.setState({ goalList: JSON.parse(goalString) });
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.todoList !== this.state.goalList) {
+    if (prevState.goaloList !== this.state.goalList) {
       localStorage.setItem(GOALS_KEY, JSON.stringify(this.state.goalList));
     }
   }
@@ -200,14 +200,6 @@ class App extends Component {
     this.setState({ [name]: value });
   };
 
-  deleteItem = (title) => {
-    const list = [...this.state.goalList];
-
-    const updatedList = list.filter((item) => item.title !== title);
-
-    this.setState({ goalList: updatedList });
-  };
-
   render() {
     return (
       <div className="App">
@@ -228,7 +220,6 @@ class App extends Component {
           <Switch>
             <Route exact path="/Goals">
               <MyGoals
-                deleteItem={this.deleteItem}
                 goalList={this.state.goalList}
                 savingsAmount={this.state.SavingsAmount}
                 calculatedSavingsAmount={this.state.calculatedSavingsAmount}

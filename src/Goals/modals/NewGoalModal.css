@@ -89,8 +89,10 @@
 
 .newGoal {
   position: fixed;
-  bottom: 4em;
-  left: 35%;
+  top: 90%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;

@@ -54,7 +54,6 @@ export default function SimpleMenu() {
               onClick={handleClose}
               style={{
                 fontFamily: '"Lora", Serif',
-                backgroundColor: "#FFF5B2",
                 color: "#362C28",
               }}
             >
@@ -64,7 +63,6 @@ export default function SimpleMenu() {
               onClick={handleClose}
               style={{
                 fontFamily: '"Lora", Serif',
-                backgroundColor: "#FFF5B2",
                 color: "#362C28",
               }}
             >
@@ -74,7 +72,6 @@ export default function SimpleMenu() {
               onClick={handleClose}
               style={{
                 fontFamily: '"Lora", Serif',
-                backgroundColor: "#FFF5B2",
                 color: "#362C28",
               }}
             >

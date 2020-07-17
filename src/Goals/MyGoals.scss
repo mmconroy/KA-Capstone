@@ -66,3 +66,9 @@
     justify-self: center;
   }
 }
+
+@media (min-width: 699px) {
+  .goals__wrapper {
+    background-position: center;
+  }
+}
