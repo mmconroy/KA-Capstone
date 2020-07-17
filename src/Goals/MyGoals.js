@@ -1,4 +1,4 @@
-import React, { useState, Component } from "react";
+import React, { useState, useEffect, Component } from "react";
 import "./MyGoals.scss";
 import Modal from "react-modal";
 import { Progress } from "react-sweet-progress";
@@ -10,14 +10,24 @@ import UserGoals from "./UserGoals";
 function MyGoals(props) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [totalCurrentAmount, setTotalCurrentAmount] = useState(
-    props.goalList.reduce((curr, val) => curr + val.currentAmount, 0)
+    props.goalList.reduce((curr, val) => curr + parseInt(val.currentAmount), 0)
   );
   console.log(totalCurrentAmount);
   const [totalGoalAmount, setTotalGoalAmount] = useState(
-    props.goalList.reduce((curr, val) => curr + val.goalAmount, 0)
+    props.goalList.reduce((curr, val) => curr + parseInt(val.goalAmount), 0)
   );
   console.log(totalGoalAmount);
-
+  useEffect(() => {
+    setTotalCurrentAmount(
+      props.goalList.reduce(
+        (curr, val) => curr + parseInt(val.currentAmount),
+        0
+      )
+    );
+    setTotalGoalAmount(
+      props.goalList.reduce((curr, val) => curr + parseInt(val.goalAmount), 0)
+    );
+  }, [props.goalList]);
   function findSavingsPercentage() {
     let percent = (totalCurrentAmount / totalGoalAmount) * 100;
 
@@ -29,20 +39,22 @@ function MyGoals(props) {
       <div className="goals__wrapper">
         <div className="progressBar">
           <h3 className="goalName"> Your Yearly Savings Goal </h3>
-          <Progress
-            percent={Number(findSavingsPercentage())}
-            theme={{
-              success: {
-                color: "#D4FCC3",
-              },
-              active: {
-                color: "#DF8B21",
-              },
-              default: {
-                color: "#fbc630",
-              },
-            }}
-          />{" "}
+          {totalGoalAmount !== 0 && (
+            <Progress
+              percent={Number(findSavingsPercentage())}
+              theme={{
+                success: {
+                  color: "#D4FCC3",
+                },
+                active: {
+                  color: "#DF8B21",
+                },
+                default: {
+                  color: "#fbc630",
+                },
+              }}
+            />
+          )}
         </div>
 
         <div className="goalFooter">
