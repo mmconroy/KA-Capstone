@@ -16,14 +16,7 @@ class App extends Component {
       {
         id: shortid.generate(),
         goalName: "Rainy Day Fund",
-        currentAmount: 300,
-        goalAmount: 1000,
-        goalNotes: "",
-      },
-      {
-        id: shortid.generate(),
-        goalName: "Get Matt a hobby",
-        currentAmount: 100,
+        currentAmount: 0,
         goalAmount: 1000,
         goalNotes: "",
       }

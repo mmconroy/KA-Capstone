@@ -24,7 +24,7 @@ function UserGoals(props) {
         {/* button to open modal for depositing into goal */}
         <img
           onClick={() => setModalIsOpen(true)}
-          src="https://img.icons8.com/ios-glyphs/60/000000/honeycombs.png"
+          src="https://img.icons8.com/pastel-glyph/48/000000/deposit.png"
         />
       </div>
 
