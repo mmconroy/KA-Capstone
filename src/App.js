@@ -12,8 +12,8 @@ const GOALS_KEY = "myapp_goals";
 
 class App extends React.Component {
   state = {
-    goalList: [],
 
+    goalList: [],
     newGoal: "",
     savingsAmount: 0,
     calculatedSavingsAmount: 0,
