@@ -24,9 +24,7 @@ function BudgetSetup(props) {
             ></input>{" "}
           </div>
           <div className="fund">
-            <button onClick={props.handleSubmitNewSavingsGoal}>
-              Calculate
-            </button>{" "}
+            <button>Calculate</button>{" "}
           </div>
 
           {/* <div className="alt-goal">

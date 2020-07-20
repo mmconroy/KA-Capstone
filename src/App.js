@@ -18,7 +18,7 @@ class App extends React.Component {
     calculatedSavingsAmount: 0,
 
     goalName: "",
-    goalAmount: 0,
+    goalAmount: "",
 
     newDeposit: [
       {
@@ -203,6 +203,7 @@ class App extends React.Component {
                 handleAddNewGoal={this.handleAddNewGoal}
                 handleModalDeposit={this.handleModalDeposit}
                 calcTotalProgress={this.calcTotalProgress}
+                handleSubmitNewSavingsGoal={this.handleSubmitNewSavingsGoal}
               />
               <NewGoalModal
                 handleNewGoalObj={this.handleNewGoalObj}

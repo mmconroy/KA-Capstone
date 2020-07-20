@@ -5,7 +5,7 @@ import "react-sweet-progress/lib/style.css";
 import UserGoals from "./UserGoals";
 
 function MyGoals(props) {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
   const [totalCurrentAmount, setTotalCurrentAmount] = useState(
     props.goalList.reduce((curr, val) => curr + parseInt(val.currentAmount), 0)
   );
@@ -22,9 +22,9 @@ function MyGoals(props) {
     setTotalGoalAmount(
       props.goalList.reduce((curr, val) => curr + parseInt(val.goalAmount), 0)
     );
-  }, [props.goalList]);
+  }, [props.goalList, props.savingsAmount]);
   function findSavingsPercentage() {
-    let percent = (totalCurrentAmount / totalGoalAmount) * 100;
+    let percent = (totalCurrentAmount / Number(props.savingsAmount)) * 100;
 
     return Math.floor(percent);
   }
@@ -54,7 +54,7 @@ function MyGoals(props) {
 
         <div className="goalFooter">
           <h3 className="money">
-            ${totalCurrentAmount} / ${totalGoalAmount}
+            ${totalCurrentAmount} / ${Number(props.savingsAmount) * 0.2}
           </h3>{" "}
           <hr />
         </div>
