@@ -12,11 +12,9 @@ function MyGoals(props) {
   const [totalCurrentAmount, setTotalCurrentAmount] = useState(
     props.goalList.reduce((curr, val) => curr + parseInt(val.currentAmount), 0)
   );
-  console.log(totalCurrentAmount);
   const [totalGoalAmount, setTotalGoalAmount] = useState(
     props.goalList.reduce((curr, val) => curr + parseInt(val.goalAmount), 0)
   );
-  console.log(totalGoalAmount);
   useEffect(() => {
     setTotalCurrentAmount(
       props.goalList.reduce(
