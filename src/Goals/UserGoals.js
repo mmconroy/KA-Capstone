@@ -1,10 +1,9 @@
-import React, { useState, Component } from "react";
+import React, { useState } from "react";
 import "./UserGoals.scss";
 import "./modals/GoalDepositModal.scss";
 import Modal from "react-modal";
 import { Progress } from "react-sweet-progress";
 import "react-sweet-progress/lib/style.css";
-import { withRouter } from "react-router-dom";
 
 function findPercentage(goal, current) {
   // function to calculate percentage of goal total
@@ -23,6 +22,7 @@ function UserGoals(props) {
       <div className="icon">
         {/* button to open modal for depositing into goal */}
         <img
+          alt="honeycomb"
           onClick={() => setModalIsOpen(true)}
           src="https://img.icons8.com/pastel-glyph/48/000000/deposit.png"
         />

@@ -1,14 +1,11 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import "./MyGoals.scss";
-import Modal from "react-modal";
 import { Progress } from "react-sweet-progress";
 import "react-sweet-progress/lib/style.css";
-import { withRouter } from "react-router-dom";
-import NewGoalModal from "./modals/NewGoalModal";
 import UserGoals from "./UserGoals";
 
 function MyGoals(props) {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
   const [totalCurrentAmount, setTotalCurrentAmount] = useState(
     props.goalList.reduce((curr, val) => curr + parseInt(val.currentAmount), 0)
   );

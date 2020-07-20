@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
 import { Switch, Route, withRouter } from "react-router-dom";
 import shortid from "shortid";
@@ -12,7 +12,6 @@ const GOALS_KEY = "myapp_goals";
 
 class App extends React.Component {
   state = {
-
     goalList: [],
     newGoal: "",
     savingsAmount: 0,
@@ -197,7 +196,6 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/Goals">
               <MyGoals
-                calculatedSavingsAmount={this.state.calculatedSavingsAmount}
                 goalList={this.state.goalList}
                 savingsAmount={this.state.SavingsAmount}
                 handleAddNewDeposit={this.handleAddNewDeposit}

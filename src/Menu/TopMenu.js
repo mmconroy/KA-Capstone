@@ -1,10 +1,8 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import Button from "@material-ui/core/Button";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import logo from "./logo.svg";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import honeycomb from "./honeycombs.png";
@@ -31,6 +29,7 @@ export default function SimpleMenu() {
           }}
         >
           <img
+            alt="menu"
             aria-controls="simple-menu"
             aria-haspopup="true"
             onClick={handleClick}
