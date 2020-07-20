@@ -5,7 +5,7 @@ import "react-sweet-progress/lib/style.css";
 import UserGoals from "./UserGoals";
 
 function MyGoals(props) {
-  // const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [totalCurrentAmount, setTotalCurrentAmount] = useState(
     props.goalList.reduce((curr, val) => curr + parseInt(val.currentAmount), 0)
   );

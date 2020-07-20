@@ -14,7 +14,7 @@ class App extends React.Component {
   state = {
     goalList: [],
     newGoal: "",
-    savingsAmount: 0,
+    savingsAmount: "",
     calculatedSavingsAmount: 0,
 
     goalName: "",
@@ -186,7 +186,7 @@ class App extends React.Component {
           </Route>
           <Route exact path="/Setup">
             <BudgetSetup
-              // goalList={this.state.goalList}
+              goalList={this.state.goalList}
               handleGoalInputChange={this.handleGoalInputChange}
               onSubmit={this.handleSubmitNewSavingsGoal}
               history={this.props.history}
@@ -197,12 +197,12 @@ class App extends React.Component {
             <Route exact path="/Goals">
               <MyGoals
                 goalList={this.state.goalList}
-                savingsAmount={this.state.SavingsAmount}
+                savingsAmount={this.state.savingsAmount}
                 handleAddNewDeposit={this.handleAddNewDeposit}
                 newDeposit={this.state.newDeposit}
-                addGoal={this.state.addGoal}
+                handleAddNewGoal={this.handleAddNewGoal}
                 handleModalDeposit={this.handleModalDeposit}
-                calculatedSavingsAmount={this.calculatedSavingsAmount}
+                calcTotalProgress={this.calcTotalProgress}
               />
               <NewGoalModal
                 handleNewGoalObj={this.handleNewGoalObj}
