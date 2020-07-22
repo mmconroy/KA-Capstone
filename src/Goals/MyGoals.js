@@ -12,6 +12,7 @@ function MyGoals(props) {
   const [totalGoalAmount, setTotalGoalAmount] = useState(
     props.goalList.reduce((curr, val) => curr + parseInt(val.goalAmount), 0)
   );
+
   useEffect(() => {
     setTotalCurrentAmount(
       props.goalList.reduce(
@@ -22,7 +23,8 @@ function MyGoals(props) {
     setTotalGoalAmount(
       props.goalList.reduce((curr, val) => curr + parseInt(val.goalAmount), 0)
     );
-  }, [props.goalList, props.savingsAmount]);
+  }, [props.goalList, props.newDeposit]);
+
   function findSavingsPercentage() {
     let percent = (totalCurrentAmount / Number(props.savingsAmount)) * 100;
 
@@ -54,7 +56,8 @@ function MyGoals(props) {
 
         <div className="goalFooter">
           <h3 className="money">
-            ${totalCurrentAmount} / ${Number(props.savingsAmount) * 0.2}
+            {/* sum of props.goalItem.currentAmount */}${totalCurrentAmount} / $
+            {Number(props.savingsAmount) * 0.2}
           </h3>{" "}
           <hr />
         </div>

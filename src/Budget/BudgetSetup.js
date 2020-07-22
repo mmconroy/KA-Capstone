@@ -17,8 +17,7 @@ function BudgetSetup(props) {
             <input
               placeholder="$ Enter Amount"
               type="text"
-              defaultValue=""
-              value={props.savingsAmount === 0 ? "" : props.savingsAmount}
+              value={props.savingsAmount}
               onChange={props.handleGoalInputChange}
               name="savingsAmount"
             ></input>{" "}
