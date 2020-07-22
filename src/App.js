@@ -8,21 +8,23 @@ import BudgetSetup from "./Budget/BudgetSetup";
 import NewGoalModal from "./Goals/modals/NewGoalModal";
 import MyGoals from "./Goals/MyGoals";
 
-const GOALS_KEY = "myapp_goals";
+const GOALS_KEY = "HIVE_GOALS";
+const SAVINGS_KEY = "HIVE_SAVINGS";
 
 class App extends React.Component {
   state = {
     goalList: [],
     newGoal: "",
-    savingsAmount: "",
+    savingsAmount: 0,
     calculatedSavingsAmount: 0,
+    currentAmount: 0,
 
     goalName: "",
-    goalAmount: "",
+    goalAmount: 0,
 
     newDeposit: [
       {
-        depositAmount: "",
+        depositAmount: 0,
         note: "",
       },
     ],
@@ -38,14 +40,24 @@ class App extends React.Component {
 
   componentDidMount() {
     const goalString = localStorage.getItem(GOALS_KEY);
+    const savingsString = localStorage.getItem(SAVINGS_KEY);
     if (goalString) {
-      this.setState({ goalList: JSON.parse(goalString) });
+      this.setState({
+        goalList: JSON.parse(goalString),
+        savingsAmount: Number(JSON.parse(savingsString)),
+      });
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.goaloList !== this.state.goalList) {
+  componentDidUpdate(_, prevState) {
+    if (prevState.goalList !== this.state.goalList) {
       localStorage.setItem(GOALS_KEY, JSON.stringify(this.state.goalList));
+    }
+    if (prevState.savingsAmount !== this.state.savingsAmount) {
+      localStorage.setItem(
+        SAVINGS_KEY,
+        JSON.stringify(this.state.savingsAmount)
+      );
     }
   }
   handleSavingsDeposit = (id) => {
@@ -119,29 +131,31 @@ class App extends React.Component {
   handleModalDeposit = (id) =>
     // function to add recent deposit to currentAmount of goal
     {
-      let goalId = id;
-      let goalObject = this.state.goalList.filter((goal) => goal.id === goalId);
-      goalObject[0].currentAmount =
-        parseInt(goalObject[0].currentAmount) +
-        parseInt(this.state.newDeposit[0].depositAmount);
-      this.setState(() => {
-        this.state.goalList.map((goal) => {
-          if (goal.id === id) {
-            return { ...goalObject };
-          } else {
-            return goal;
-          }
-        });
+      this.setState((state) => {
+        return {
+          goalList: state.goalList.map((goal) => {
+            if (goal.id === id) {
+              return {
+                ...goal,
+                currentAmount:
+                  goal.currentAmount + state.newDeposit[0].depositAmount,
+              };
+            } else {
+              return goal;
+            }
+          }),
+        };
       });
     };
 
   handleAddNewDeposit = (event) => {
-    // sets value of input to newDeposit state
+    // sets value of input to newDevposit state
     event.preventDefault();
+    const value = Number(event.target.value);
     this.setState({
       newDeposit: [
         {
-          depositAmount: event.target.value,
+          depositAmount: value,
           note: this.state.newDeposit.note,
         },
       ],
@@ -157,7 +171,7 @@ class App extends React.Component {
       let newGoalObject = {
         id: shortid.generate(),
         goalName: newName,
-        currentAmount: "0",
+        currentAmount: 0,
         goalAmount: newAmount,
         goalNotes: "",
       };
@@ -175,6 +189,14 @@ class App extends React.Component {
 
     this.setState({ [name]: value });
   };
+
+  // deleteItem = (id) => {
+  //   const list = [...this.state.goalList];
+
+  //   const updatedList = list.filter((goal) => goal.id !== goalId);
+
+  //   this.setState({ goalList: updatedList });
+  // };
 
   render() {
     return (
